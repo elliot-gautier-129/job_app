@@ -1,0 +1,8 @@
+{
+  "_comment": "Bullets that are approved (auto-approval policy, 2026-11-18) but whose wording contradicts docs/DECISIONS.md. The renderer's fit loop and any automatic selection must never pick them; a manifest that names one explicitly gets a console warning. Remove an entry only if Elliot rewords or rejects the bullet.",
+  "do_not_auto_select": {
+    "bullet_qrt_arbitrage_s2": "Says 'arbitrage strategy'; DECISIONS.md: call it pairs trading.",
+    "bullet_amazon_lost_package_s2": "Says 'Applied a LightGBM model'; DECISIONS.md: Elliot built and tuned it.",
+    "bullet_amazon_carrier_pricing_s3": "Drops the preferred 'drove the cross-team fix to zero duplicate lanes' framing (DECISIONS.md) and adds the unverified 'SQL row-count validation' claim."
+  }
+}

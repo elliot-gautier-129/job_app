@@ -12,3 +12,7 @@ __pycache__/
 *.fdb_latexmk
 *.synctex.gz
 build/
+.pytest_cache/
+# Rendered CVs: output/<job>/cv.tex is the artefact you take to Overleaf; the
+# compile directory is scratch.
+output/*/build/

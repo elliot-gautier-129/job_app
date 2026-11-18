@@ -1,16 +1,24 @@
 #!/usr/bin/env python3
-"""Review and approve CV bullet variants (schema v1.3).
+"""Approval bookkeeping for CV bullet variants (schema v1.3).
 
-Approval records the exact text you saw: status "approved", a UTC timestamp,
-and the SHA-256 of the UTF-8 text. If the text changes later, the hash no
-longer matches and the validator treats the approval as invalid.
+Policy (2026-11-18, docs/DECISIONS.md): bullets are approved automatically.
+Elliot's review happens when he edits the generated .tex in Overleaf, so
+nothing here ever blocks CV generation. This tool stamps approvals and
+manages the rare reject/revoke.
 
-Usage (run from the project root):
-    python tools/approve_bullets.py                 # interactive review of all proposed bullets
-    python tools/approve_bullets.py --list          # status overview
-    python tools/approve_bullets.py --approve ID [ID ...]
-    python tools/approve_bullets.py --reject  ID [ID ...]
-    python tools/approve_bullets.py --revoke  ID [ID ...]   # back to proposed
+Approving a bullet records status "approved", a UTC timestamp, and the SHA-256
+of its UTF-8 text. The hash only detects text edited after it was stamped
+(shown as STALE); re-stamp with --approve ID or --all.
+
+Usage (run from the project root; non-interactive by default):
+    python tools/approve_bullets.py                  # status overview (same as --list)
+    python tools/approve_bullets.py --all --yes      # approve every proposed or STALE bullet
+    python tools/approve_bullets.py --approve ID [ID ...] [--yes]
+    python tools/approve_bullets.py --reject  ID [ID ...] [--yes]
+    python tools/approve_bullets.py --revoke  ID [ID ...] [--yes]   # back to proposed
+    python tools/approve_bullets.py --review         # optional one-by-one interactive review
+Without --yes, batch commands ask for confirmation; with no keyboard input
+(e.g. a `!` command in Claude Code) that counts as "no".
 Options:
     --kb PATH   knowledge_base directory (default: ./knowledge_base next to tools/)
 """
@@ -27,6 +35,12 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+
+# Bullet text contains Unicode (∼, –, −, ×, £); Windows consoles default to
+# cp1252, which cannot print some of it. Force UTF-8 output.
+for _stream in (sys.stdout, sys.stderr):
+    if hasattr(_stream, "reconfigure"):
+        _stream.reconfigure(encoding="utf-8", errors="replace")
 
 
 def sha256(text: str) -> str:
@@ -51,7 +65,7 @@ def save_bullets(kb: Path, data) -> None:
 
 def state(b) -> str:
     if b["status"] == "approved" and b["approved_text_sha256"] != sha256(b["text"]):
-        return "STALE"  # text edited after approval
+        return "STALE"  # text edited after it was stamped
     return b["status"]
 
 
@@ -63,6 +77,15 @@ def set_status(b, status: str) -> None:
     else:
         b["approved_at"] = None
         b["approved_text_sha256"] = None
+
+
+def ask(prompt: str) -> str:
+    """input() that treats missing keyboard input (EOF) as an empty answer, i.e. "no"."""
+    try:
+        return input(prompt).strip().lower()
+    except EOFError:
+        print("\n(no keyboard input available; treating as \"no\". Re-run with --yes to skip the prompt.)")
+        return ""
 
 
 class Context:
@@ -82,7 +105,7 @@ class Context:
     def show(self, b, n=None, total=None) -> None:
         head = f"[{n}/{total}] " if n else ""
         print("\n" + "=" * 78)
-        print(f"{head}{b['id']}   ({self.entry_of(b)} · priority {b['priority']} · {state(b)})")
+        print(f"{head}{b['id']}   ({self.entry_of(b)} · priority {b['priority']} · {state(b)} · {b['source']})")
         print("-" * 78)
         print(textwrap.fill(b["text"], 78))
         print("-" * 78)
@@ -113,22 +136,25 @@ def cmd_batch(ctx: Context, ids, status: str, assume_yes: bool) -> int:
     if missing:
         print("Unknown bullet IDs:", ", ".join(missing))
         return 1
-    for n, i in enumerate(ids, 1):
-        ctx.show(ctx.bullets[i], n, len(ids))
+    if not ids:
+        print("Nothing to do.")
+        return 0
     verb = {"approved": "Approve", "rejected": "Reject", "proposed": "Revoke approval for"}[status]
     if not assume_yes:
-        ans = input(f"\n{verb} these {len(ids)} bullet(s) exactly as shown? [y/N] ").strip().lower()
-        if ans != "y":
+        for n, i in enumerate(ids, 1):
+            ctx.show(ctx.bullets[i], n, len(ids))
+        if ask(f"\n{verb} these {len(ids)} bullet(s) exactly as shown? [y/N] ") != "y":
             print("Nothing changed.")
             return 0
     for i in ids:
         set_status(ctx.bullets[i], status)
     save_bullets(ctx.kb, ctx.data)
-    print(f"{verb.split()[0]}d {len(ids)} bullet(s). Backup: bullet_variants.json.bak")
+    done = {"approved": "Approved", "rejected": "Rejected", "proposed": "Revoked"}[status]
+    print(f"{done} {len(ids)} bullet(s): {', '.join(ids)}. Backup: bullet_variants.json.bak")
     return 0
 
 
-def cmd_interactive(ctx: Context) -> int:
+def cmd_review(ctx: Context) -> int:
     queue = [b for b in ctx.bullets.values() if state(b) in ("proposed", "STALE")]
     if not queue:
         print("No bullets waiting for review.")
@@ -138,16 +164,13 @@ def cmd_interactive(ctx: Context) -> int:
     for n, b in enumerate(queue, 1):
         ctx.show(b, n, len(queue))
         while True:
-            ans = input("[a]pprove / [r]eject / [s]kip / [q]uit > ").strip().lower()
+            ans = ask("[a]pprove / [r]eject / [s]kip / [q]uit > ") or "q"
             if ans in ("a", "r", "s", "q"):
                 break
         if ans == "q":
             break
-        if ans == "a":
-            set_status(b, "approved")
-            changed += 1
-        elif ans == "r":
-            set_status(b, "rejected")
+        if ans in ("a", "r"):
+            set_status(b, "approved" if ans == "a" else "rejected")
             changed += 1
     if changed:
         save_bullets(ctx.kb, ctx.data)
@@ -161,25 +184,30 @@ def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--kb", type=Path, default=ROOT / "knowledge_base")
     g = ap.add_mutually_exclusive_group()
-    g.add_argument("--list", action="store_true")
+    g.add_argument("--list", action="store_true", help="status overview (the default)")
+    g.add_argument("--all", action="store_true", help="approve every proposed or STALE bullet")
     g.add_argument("--approve", nargs="+", metavar="ID")
     g.add_argument("--reject", nargs="+", metavar="ID")
     g.add_argument("--revoke", nargs="+", metavar="ID")
+    g.add_argument("--review", action="store_true", help="optional interactive one-by-one review")
     ap.add_argument("--yes", action="store_true", help="skip the confirmation prompt for batch commands")
     args = ap.parse_args(argv)
 
     ctx = Context(args.kb)
-    if args.list:
-        cmd_list(ctx)
-        return 0
-    if args.approve:
+    if args.all:
+        ids = [b["id"] for b in ctx.data["bullet_variants"] if state(b) in ("proposed", "STALE")]
+        rc = cmd_batch(ctx, ids, "approved", args.yes)
+    elif args.approve:
         rc = cmd_batch(ctx, args.approve, "approved", args.yes)
     elif args.reject:
         rc = cmd_batch(ctx, args.reject, "rejected", args.yes)
     elif args.revoke:
         rc = cmd_batch(ctx, args.revoke, "proposed", args.yes)
+    elif args.review:
+        rc = cmd_review(ctx)
     else:
-        rc = cmd_interactive(ctx)
+        cmd_list(ctx)
+        return 0
 
     # Re-validate the whole knowledge base after any change.
     try:

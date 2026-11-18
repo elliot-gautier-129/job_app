@@ -7,6 +7,12 @@ Usage:
 
 Runs JSON Schema validation on every file, then cross-file checks that JSON
 Schema cannot express. Exits 1 if any ERROR is found; WARNINGs do not fail.
+
+Approval policy (2026-11-18, docs/DECISIONS.md): bullets are approved
+automatically and unconfirmed skills render, so neither blocks
+--application-ready (missing approval is a WARNING). A bullet whose text no
+longer matches its stored SHA-256 is still an ERROR, and so is any structural or
+cross-file problem.
 """
 from __future__ import annotations
 
@@ -197,7 +203,8 @@ def cross_file(rep, d):
         if b["status"] == "approved":
             digest = hashlib.sha256(b["text"].encode("utf-8")).hexdigest()
             if b["approved_text_sha256"] != digest:
-                rep.err(f"{bid}: approved_text_sha256 does not match current text (approval invalid)")
+                rep.err(f"{bid}: text changed since it was generated/approved (hash mismatch); "
+                        f"re-stamp with tools/approve_bullets.py --approve {bid} --yes")
         if "\\" in b["text"] or "$" in b["text"]:
             rep.err(f"{bid}: text contains LaTeX markup; store plain Unicode text")
 
@@ -270,7 +277,9 @@ def check_manifest(rep, path, schema_dir, idx, application_ready):
                     if b["status"] == "rejected":
                         rep.err(f"manifest: bullet '{bid}' is rejected")
                     elif application_ready and b["status"] != "approved":
-                        rep.err(f"manifest: bullet '{bid}' is {b['status']}, not approved")
+                        # Auto-approval policy (2026-11-18): never blocks; the Overleaf edit is the review.
+                        rep.warn(f"manifest: bullet '{bid}' has no approval record "
+                                 f"(run tools/approve_bullets.py --all --yes)")
                 if "coursework_ids" in entry:
                     rep.err(f"manifest: {kind} entry '{eid}' must use bullet_ids")
         seen, labels = Counter(), Counter()
@@ -290,8 +299,10 @@ def check_manifest(rep, path, schema_dir, idx, application_ready):
                 continue
             if n > 1:
                 rep.err(f"manifest: skill '{sid}' appears {n} times")
-            if application_ready and (s["confirmation_status"] != "confirmed" or not s["cv_eligible"]):
-                rep.err(f"manifest: skill '{sid}' is not confirmed + cv_eligible")
+            # confirmation_status is tracking only (2026-11-18): new skills render and are
+            # flagged with a REVIEW comment in the .tex. cv_eligible is still a hard gate.
+            if application_ready and not s["cv_eligible"]:
+                rep.err(f"manifest: skill '{sid}' is not cv_eligible")
         for iid in sec.get("interest_ids", []):
             if iid not in idx["interests"]:
                 rep.err(f"manifest: interest '{iid}' not found")
@@ -305,6 +316,17 @@ def check_rendered_text(rep, text: str):
         rep.err(f"rendered output contains internal metadata word '{match.group(0)}'")
 
 
+def run(kb: Path, schemas: Path, manifest: Path | None = None, application_ready: bool = False) -> Report:
+    """Programmatic entry point (used by the renderer and kb_writer)."""
+    rep, data = Report(), {}
+    validate_schemas(rep, kb, schemas, data)
+    if len(data) == len(KB_FILES):
+        idx = cross_file(rep, data)
+        if manifest:
+            check_manifest(rep, manifest, schemas, idx, application_ready)
+    return rep
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser()
     root = Path(__file__).resolve().parent.parent
@@ -314,12 +336,7 @@ def main(argv=None):
     ap.add_argument("--application-ready", action="store_true")
     args = ap.parse_args(argv)
 
-    rep, data = Report(), {}
-    validate_schemas(rep, args.kb, args.schemas, data)
-    if len(data) == len(KB_FILES):
-        idx = cross_file(rep, data)
-        if args.manifest:
-            check_manifest(rep, args.manifest, args.schemas, idx, args.application_ready)
+    rep = run(args.kb, args.schemas, args.manifest, args.application_ready)
     for w in rep.warnings:
         print("WARNING:", w)
     for e in rep.errors:

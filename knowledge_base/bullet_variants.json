@@ -16,11 +16,11 @@
         "skill_etl_pipelines",
         "skill_incremental_loading"
       ],
-      "status": "proposed",
+      "status": "approved",
       "source": "existing_cv",
       "priority": 5,
-      "approved_at": null,
-      "approved_text_sha256": null
+      "approved_at": "2026-11-18T19:35:55Z",
+      "approved_text_sha256": "3c1979c06ed3a21a86d6aa8e2b2bf58c39fd6c3a1275adcf44528238bfc599b5"
     },
     {
       "id": "bullet_amazon_lost_package_s1",
@@ -36,11 +36,11 @@
         "skill_lightgbm",
         "skill_cross_validation"
       ],
-      "status": "proposed",
+      "status": "approved",
       "source": "existing_cv",
       "priority": 5,
-      "approved_at": null,
-      "approved_text_sha256": null
+      "approved_at": "2026-11-18T19:35:55Z",
+      "approved_text_sha256": "5e5c7d1a99be9a28a49f22dd486aba5ead503f85b703955f6c414c148e98c07d"
     },
     {
       "id": "bullet_amazon_multiagent_s1",
@@ -60,11 +60,11 @@
         "skill_multi_agent_systems",
         "skill_redshift"
       ],
-      "status": "proposed",
+      "status": "approved",
       "source": "existing_cv",
       "priority": 4,
-      "approved_at": null,
-      "approved_text_sha256": null
+      "approved_at": "2026-11-18T19:35:55Z",
+      "approved_text_sha256": "c603796a9c96f16265f7c60644eb5bd16fbd59f1582adb851350897183c16fa4"
     },
     {
       "id": "bullet_amazon_carrier_pricing_s1",
@@ -79,11 +79,11 @@
       "skill_ids": [
         "skill_data_quality_validation"
       ],
-      "status": "proposed",
+      "status": "approved",
       "source": "existing_cv",
       "priority": 4,
-      "approved_at": null,
-      "approved_text_sha256": null
+      "approved_at": "2026-11-18T19:35:55Z",
+      "approved_text_sha256": "b0f2c0f20de4981efcfc03e44c075d0a449278f274da8f31f2ceb6c9b426d0fd"
     },
     {
       "id": "bullet_kirontech_provider_graph_s1",
@@ -101,11 +101,11 @@
         "skill_pandas",
         "skill_graph_analytics"
       ],
-      "status": "proposed",
+      "status": "approved",
       "source": "existing_cv",
       "priority": 3,
-      "approved_at": null,
-      "approved_text_sha256": null
+      "approved_at": "2026-11-18T19:35:55Z",
+      "approved_text_sha256": "561ad081a0ef347f093ca44a4bb8e22f548671aed5c2e63fd3dc55b4bff89ad1"
     },
     {
       "id": "bullet_kirontech_fraud_detection_s1",
@@ -121,11 +121,11 @@
         "skill_anomaly_detection",
         "skill_graph_analytics"
       ],
-      "status": "proposed",
+      "status": "approved",
       "source": "existing_cv",
       "priority": 4,
-      "approved_at": null,
-      "approved_text_sha256": null
+      "approved_at": "2026-11-18T19:35:55Z",
+      "approved_text_sha256": "433875e7ea5d110708bdc875b7594672ca81b81e62c1615069d0cb3bb3dfabba"
     },
     {
       "id": "bullet_kirontech_dashboard_s1",
@@ -140,11 +140,11 @@
       "skill_ids": [
         "skill_streamlit"
       ],
-      "status": "proposed",
+      "status": "approved",
       "source": "existing_cv",
       "priority": 2,
-      "approved_at": null,
-      "approved_text_sha256": null
+      "approved_at": "2026-11-18T19:35:55Z",
+      "approved_text_sha256": "824038f9435c847ce69044ae4cf9d261fc9878cbaf57668e480e57d005b74b03"
     },
     {
       "id": "bullet_qrt_pairs_trading_s1",
@@ -159,11 +159,11 @@
         "skill_backtesting",
         "skill_excel"
       ],
-      "status": "proposed",
+      "status": "approved",
       "source": "existing_cv",
       "priority": 2,
-      "approved_at": null,
-      "approved_text_sha256": null
+      "approved_at": "2026-11-18T19:35:55Z",
+      "approved_text_sha256": "48e35647ddb3e3fb569d1c6b04d7be448714524b6ef2f51c382abc3eafd2eac5"
     },
     {
       "id": "bullet_football_pipeline_s1",
@@ -180,11 +180,11 @@
         "skill_python",
         "skill_etl_pipelines"
       ],
-      "status": "proposed",
+      "status": "approved",
       "source": "existing_cv",
       "priority": 3,
-      "approved_at": null,
-      "approved_text_sha256": null
+      "approved_at": "2026-11-18T19:35:55Z",
+      "approved_text_sha256": "33bbccbcf64f46afa2b058fa9801eaee95065dc6718cb9f80d76f66582521d37"
     },
     {
       "id": "bullet_football_market_benchmark_s1",
@@ -199,11 +199,11 @@
       "skill_ids": [
         "skill_backtesting"
       ],
-      "status": "proposed",
+      "status": "approved",
       "source": "existing_cv",
       "priority": 3,
-      "approved_at": null,
-      "approved_text_sha256": null
+      "approved_at": "2026-11-18T19:35:55Z",
+      "approved_text_sha256": "dc7a80fd60d529abdd358d734b1e545828674cc2b4baf97501bc962641b53d76"
     },
     {
       "id": "bullet_cover_web_app_s1",
@@ -218,11 +218,11 @@
       "skill_ids": [
         "skill_gemini"
       ],
-      "status": "proposed",
+      "status": "approved",
       "source": "existing_cv",
       "priority": 3,
-      "approved_at": null,
-      "approved_text_sha256": null
+      "approved_at": "2026-11-18T19:35:55Z",
+      "approved_text_sha256": "b51fd38c0e6960c8ac4ef7fe8cfb55f787845bcedcd0464bc992bc9bc537fec6"
     },
     {
       "id": "bullet_cover_pricing_model_s1",
@@ -236,11 +236,11 @@
       "skill_ids": [
         "skill_frequency_severity_modelling"
       ],
-      "status": "proposed",
+      "status": "approved",
       "source": "existing_cv",
       "priority": 3,
-      "approved_at": null,
-      "approved_text_sha256": null
+      "approved_at": "2026-11-18T19:35:55Z",
+      "approved_text_sha256": "8e670d65e473594fb6fa4dd500516374dd1499d8382b73021012cffb40e11131"
     },
     {
       "id": "bullet_amazon_lost_package_s2",
@@ -256,11 +256,11 @@
         "skill_lightgbm",
         "skill_cross_validation"
       ],
-      "status": "proposed",
+      "status": "approved",
       "source": "existing_cv",
       "priority": 3,
-      "approved_at": null,
-      "approved_text_sha256": null
+      "approved_at": "2026-11-18T19:35:55Z",
+      "approved_text_sha256": "6579ad76b4661f512fdcb55a95f422930599a0970a9822441d7ffc139093fded"
     },
     {
       "id": "bullet_amazon_carrier_pricing_s3",
@@ -276,11 +276,11 @@
         "skill_sql",
         "skill_data_quality_validation"
       ],
-      "status": "proposed",
+      "status": "approved",
       "source": "existing_cv",
       "priority": 3,
-      "approved_at": null,
-      "approved_text_sha256": null
+      "approved_at": "2026-11-18T19:35:55Z",
+      "approved_text_sha256": "dd3dfc98263b95bedbdfbad6feef52ee9e77f3ece1551976625606a01204b936"
     },
     {
       "id": "bullet_qrt_arbitrage_s2",
@@ -294,11 +294,11 @@
       "skill_ids": [
         "skill_excel"
       ],
-      "status": "proposed",
+      "status": "approved",
       "source": "existing_cv",
       "priority": 1,
-      "approved_at": null,
-      "approved_text_sha256": null
+      "approved_at": "2026-11-18T19:35:55Z",
+      "approved_text_sha256": "ca2b1429eebb4d660821d2cf9dacf8b8ed50fcb1cd6878505f70d1b1e489e3c3"
     },
     {
       "id": "bullet_football_pipeline_s2",
@@ -315,11 +315,11 @@
         "skill_python",
         "skill_etl_pipelines"
       ],
-      "status": "proposed",
+      "status": "approved",
       "source": "existing_cv",
       "priority": 3,
-      "approved_at": null,
-      "approved_text_sha256": null
+      "approved_at": "2026-11-18T19:35:55Z",
+      "approved_text_sha256": "7ddb268ba688b646afd0b02d319c5c826a883f355e77a34fcb3266af027d5d15"
     },
     {
       "id": "bullet_football_lightgbm_s2",
@@ -336,11 +336,11 @@
         "skill_walk_forward_validation",
         "skill_streamlit"
       ],
-      "status": "proposed",
+      "status": "approved",
       "source": "existing_cv",
       "priority": 4,
-      "approved_at": null,
-      "approved_text_sha256": null
+      "approved_at": "2026-11-18T19:35:55Z",
+      "approved_text_sha256": "717994b0d9f22c65022e3e98536dd855cd5edd487d04c29df63bbd8fd6c4f413"
     }
   ]
 }

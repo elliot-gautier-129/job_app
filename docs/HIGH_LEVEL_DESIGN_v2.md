@@ -2,8 +2,10 @@
 ## High-Level Design Document — Version 2.0
 
 > **Note (2026-11-18):** This document predates schema v1.3. Where it says "Knowledge Base Schema v1.0", the current contract is `schemas/` (v1.3). See `docs/DECISIONS.md` and `docs/SCHEMA_v1_3_MIGRATION_NOTES.md`. Phase 1 (knowledge-base population) is complete. Its §11 "Immediate instruction" is historical.
+>
+> **Policy change (2026-11-18):** see `docs/DECISIONS.md` → "Auto-approval + Overleaf-first output". Approval is now automatic and never blocks generation. The main artefact is an Overleaf-ready `.tex`, and Elliot's Overleaf edit is the review step. Statements below that conflicted with this have been updated in place.
 
-**Status:** Design agreed; knowledge-base population and renderer implementation pending  
+**Status:** Phases 1–2 done (knowledge base, default manifest, renderer); Phase 3 (tailoring) next  
 **Primary development environment:** Local computer  
 **Primary language:** Python  
 **Purpose of this document:** Provide Claude with the full project context and architectural boundaries before populating the personal knowledge base.  
@@ -31,7 +33,7 @@ The most important early deliverable is a reliable CV tailoring engine built on 
 ### Explicit non-goals
 
 - No automatic application submission, browser form filling, or account creation.
-- No automatic approval of newly generated bullet wording.
+- ~~No automatic approval of newly generated bullet wording.~~ *(Superseded 2026-11-18: new wording is auto-approved, tagged `agent_generated`/`claude_generated`, and flagged with `% REVIEW` in the `.tex`.)*
 - No invented experience, metrics, qualifications, skills, or responsibilities.
 - No multilingual CV generation: **English only**.
 - No need for LangGraph, a vector database, or a production cloud database in the initial implementation.
@@ -39,7 +41,7 @@ The most important early deliverable is a reliable CV tailoring engine built on 
 
 ## 3. Intended user workflow
 
-**Near-term, on-demand:** The user supplies a job description or URL. The system analyzes the job, selects verified/approved CV content, compiles a tailored one-page PDF, and presents the CV and selection rationale for review. If stronger wording is needed, it may propose new bullet variants for explicit approval; these cannot appear in the final CV until approved.
+**Near-term, on-demand:** The user supplies a job description or URL. The system analyzes the job, selects CV content from the knowledge base, rewords bullets where useful (saved as auto-approved, traceable variants; rewording only, no new claims), adds relevant skills from the job description, and writes a tailored one-page **Overleaf-ready `.tex`** (plus a PDF preview) with `% REVIEW` comments. The user edits the `.tex` in Overleaf (this is the review step) and applies manually.
 
 **Longer-term, scheduled:** Job collectors discover new postings from supported ATS APIs and company career pages. Eligibility filters and relevance scoring prioritize opportunities. The system prepares tailored CVs for promising jobs and presents them in a dashboard. The user decides which roles to pursue and manually applies. Airtable/Gmail integration is optional and downstream.
 
@@ -64,19 +66,19 @@ Job descriptions / ATS job collectors
    Deterministic LaTeX renderer <---- Existing Overleaf template
                 |
                 v
-       PDF compilation
+   .tex + PDF compilation
                 |
                 v
    One-page fit check / revise selection
                 |
                 v
-  Review dashboard + tailored PDF
+  output/<job>/cv.tex (+ cv.pdf preview)
                 |
                 v
-       User applies manually
+  User edits in Overleaf (= review), applies manually
 ```
 
-The AI component interprets job requirements, scores relevance, selects content IDs, and proposes new wording when needed. Deterministic Python code validates references, approval states, and rendering rules. The LLM should **not** directly edit the LaTeX template or fabricate raw CV content outside the knowledge-base workflow.
+The AI component interprets job requirements, scores relevance, selects content IDs, and rewords bullets when needed (auto-approved via `cv_engine/kb_writer.py`, rewording only). Deterministic Python code validates references, approval states, and rendering rules. The LLM should **not** directly edit the LaTeX template or fabricate raw CV content outside the knowledge-base workflow.
 
 ## 5. Knowledge Base
 
@@ -115,10 +117,10 @@ A separate `cv_engine/manifests/default_cv.json` describes the content and order
 - Stable IDs and valid cross-file references; avoid duplicate facts and achievements.
 - Separate **facts** from **achievements**, and both from **CV wording**.
 - Claims and metrics must be traceable to verified facts; uncertainty is explicitly flagged.
-- Schema validation checks shape, not truth; human review is required for factual approval.
-- New or changed bullet text begins as `proposed`; explicit user approval is necessary before use in a final tailored CV.
-- Approval applies to the **exact wording**; the schema package specifies approval metadata and text hashing.
-- The renderer uses approved variants only. Rejected or proposed bullets must not silently enter final output.
+- Schema validation checks shape, not truth; human review of facts happens in Elliot's Overleaf edit, guided by `% REVIEW` comments.
+- New or changed bullet text is saved straight away as `approved` with `source: agent_generated`/`claude_generated` (2026-11-18 policy), via `cv_engine/kb_writer.py`, which refuses numbers not present in the linked achievements.
+- Approval metadata records the **exact wording**: the SHA-256 detects text edited after it was stamped (validator error).
+- The renderer uses approved variants; rejected bullets never enter output. Bullets listed in `cv_engine/selection_policy.json` (wording contradicts DECISIONS.md) are never auto-selected.
 - Coursework selection is permitted only from verified course records.
 - Mandatory/locked content is controlled by the **manifest**, not a global bullet property.
 - No translation or language-specific variant machinery is required.
@@ -133,7 +135,7 @@ A separate `cv_engine/manifests/default_cv.json` describes the content and order
 6. **Validate:** Check schema, referential integrity, approved statuses, verified coursework, permitted sections, duplicates, and locked entries.
 7. **Render:** Resolve IDs and generate LaTeX using the user's existing Overleaf formatting, then compile a PDF.
 8. **Fit:** Confirm that the PDF has exactly one page. If not, try shorter **approved** variants and then remove the lowest-value **unlocked** optional content; recompile after each change. Respect a configured attempt limit. Never silently shrink fonts or margins.
-9. **Deliver:** Save the job-specific manifest, generated LaTeX/PDF, selection explanation, and validation/fitting outcome. If fitting fails, report failure instead of presenting an overlength PDF as successful.
+9. **Deliver:** Save to `output/<job_id>/`: `cv.tex` (main artefact, Overleaf-ready, with `% REVIEW` comments unless `--clean`), `cv.pdf` preview, and the fitted `manifest.json`. If fitting fails, still write the `.tex` and report OVER-LENGTH clearly in the console; never present it as fitting.
 
 The optimization goal is **maximum job relevance subject to factual, approval, structural, and one-page constraints**. Approximate bullet lengths may help ranking, but actual compiled PDF measurements are authoritative. Layout measurements may be cached by template revision and text hash; they do not belong in Claude-authored knowledge records.
 
@@ -143,7 +145,7 @@ The existing Overleaf project is the visual source of truth for typography, marg
 
 The implementation should preserve a static LaTeX template and generate only its variable content, using a deterministic Python renderer and safe escaping. The LLM chooses content identifiers, not raw LaTeX. The renderer must be tested against the existing CV for visual consistency.
 
-The baseline manifest must be derived from the **actual current CV source**, not reconstructed from memory. Existing bullet wording must be imported exactly and explicitly approved by the user before it is eligible for final CV generation.
+The baseline manifest must be derived from the **actual current CV source**, not reconstructed from memory. Existing bullet wording must be imported exactly. *(All 17 imported bullets were approved on 2026-11-18.)*
 
 ## 8. Technology choices
 
@@ -165,7 +167,7 @@ Development and knowledge-base storage should be local rather than on Berkeley S
 - Validate each file structurally and all cross-file references programmatically.
 - **Acceptance:** The knowledge base is schema-valid, internally consistent, and reviewed; unverified claims remain flagged and unapproved bullets remain proposed.
 
-### Phase 2 — Baseline renderer
+### Phase 2 — Baseline renderer ✅ (done 2026-11-18)
 
 - Import the actual Overleaf template and exact existing CV content.
 - Create and review the default CV manifest.
@@ -176,8 +178,8 @@ Development and knowledge-base storage should be local rather than on Berkeley S
 
 - Analyze job descriptions and select relevant approved content/coursework.
 - Generate validated manifests and role-specific PDFs.
-- Implement the iterative one-page fitting loop and approval workflow for proposed bullets.
-- **Acceptance:** A user-supplied job description yields a factual, relevant, correctly formatted one-page CV, or a clear validation/fitting failure.
+- Use the one-page fitting loop (built in Phase 2); reword via `kb_writer.add_bullet_variant` and add JD skills via `kb_writer.add_skill` (both auto-approved/tracked).
+- **Acceptance:** A user-supplied job description yields a factual, relevant, Overleaf-ready one-page `.tex`, or a `.tex` clearly reported as over-length / a clear validation failure.
 
 ### Phase 4 — Discovery and ranking
 
@@ -191,8 +193,8 @@ Development and knowledge-base storage should be local rather than on Berkeley S
 
 ## 10. Data governance and review policy
 
-Claude is a **knowledge extraction and drafting assistant**, not the authority that approves professional claims. It may use the actual CVs, course descriptions, and conversation context accessible to it, but must state when information is missing. Do not assume Claude can access every historical conversation. Source documents and the user's explicit corrections take precedence over unsupported model recollection.
+Claude is a **knowledge extraction and drafting assistant**. Since 2026-11-18 its rewordings are auto-approved, but it is still not a source of new claims. It may use the actual CVs, course descriptions, and conversation context accessible to it, but must state when information is missing. Do not assume Claude can access every historical conversation. Source documents and the user's explicit corrections take precedence over unsupported model recollection.
 
-Preserve exact existing CV text when importing; mark new or unapproved variants as proposed. Never fabricate dates, quantitative impact, or technologies.
+Preserve exact existing CV text when importing. New variants are saved as approved with `agent_generated`/`claude_generated` provenance and flagged with `% REVIEW` in the `.tex`. Never fabricate dates, quantitative impact, or technologies, and never contradict `docs/DECISIONS.md`.
 
 Each tailored output should be reproducible from a recorded knowledge-base revision, template revision, and selection manifest. The user retains final editorial control and submits all applications manually.

@@ -1,0 +1,17 @@
+{
+  "template_id": "baseline_onepage",
+  "template_file": "baseline_onepage.tex",
+  "section_titles": {
+    "education": "EDUCATION",
+    "experience": "WORK EXPERIENCE",
+    "projects": "TECHNICAL PROJECTS",
+    "skills": "TECHNICAL SKILLS",
+    "interests": "INTERESTS"
+  },
+  "interests_label": "Interests",
+  "ungrouped_skills_label": "Skills",
+  "nested_skills": {
+    "skill_sql": ["skill_redshift", "skill_duckdb"]
+  },
+  "underfill_threshold": 0.85
+}

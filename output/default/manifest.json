@@ -1,0 +1,162 @@
+{
+  "schema_version": "1.3",
+  "manifest_id": "default_cv",
+  "template_id": "baseline_onepage",
+  "contact_profile_id": "US",
+  "job_id": null,
+  "sections": [
+    {
+      "section": "education",
+      "entries": [
+        {
+          "entry_id": "edu_berkeley_ma_stats_ds",
+          "coursework_ids": [
+            "course_berkeley_statistical_bayesian_inference",
+            "course_berkeley_machine_learning",
+            "course_berkeley_computational_statistics",
+            "course_berkeley_high_dimensional_statistics"
+          ],
+          "locked": true
+        },
+        {
+          "entry_id": "edu_warwick_bsc_morse",
+          "coursework_ids": [
+            "course_warwick_topics_in_data_science",
+            "course_warwick_linear_statistical_modelling_r",
+            "course_warwick_mathematical_statistics",
+            "course_warwick_machine_learning_frameworks",
+            "course_warwick_programming_for_data_science",
+            "course_warwick_python_data_analytic_tasks",
+            "course_warwick_mathematical_programming_1"
+          ],
+          "locked": true
+        }
+      ],
+      "skill_ids": [],
+      "interest_ids": [],
+      "skill_groups": []
+    },
+    {
+      "section": "experience",
+      "entries": [
+        {
+          "entry_id": "exp_amazon_bie_intern",
+          "bullet_ids": [
+            "bullet_amazon_etl_s1",
+            "bullet_amazon_lost_package_s1",
+            "bullet_amazon_multiagent_s1",
+            "bullet_amazon_carrier_pricing_s1"
+          ],
+          "locked": true
+        },
+        {
+          "entry_id": "exp_kirontech_ds_intern",
+          "bullet_ids": [
+            "bullet_kirontech_provider_graph_s1",
+            "bullet_kirontech_fraud_detection_s1",
+            "bullet_kirontech_dashboard_s1"
+          ],
+          "locked": true
+        },
+        {
+          "entry_id": "exp_qrt_da_intern",
+          "bullet_ids": [
+            "bullet_qrt_pairs_trading_s1"
+          ],
+          "locked": true
+        }
+      ],
+      "skill_ids": [],
+      "interest_ids": [],
+      "skill_groups": []
+    },
+    {
+      "section": "projects",
+      "entries": [
+        {
+          "entry_id": "proj_football_forecasting",
+          "bullet_ids": [
+            "bullet_football_pipeline_s1",
+            "bullet_football_lightgbm_s2",
+            "bullet_football_market_benchmark_s1"
+          ],
+          "locked": false
+        },
+        {
+          "entry_id": "proj_cover_hackathon",
+          "bullet_ids": [
+            "bullet_cover_web_app_s1",
+            "bullet_cover_pricing_model_s1"
+          ],
+          "locked": false
+        }
+      ],
+      "skill_ids": [],
+      "interest_ids": [],
+      "skill_groups": []
+    },
+    {
+      "section": "skills",
+      "entries": [],
+      "skill_ids": [],
+      "interest_ids": [],
+      "skill_groups": [
+        {
+          "label": "Programming & Data",
+          "skill_ids": [
+            "skill_python",
+            "skill_r",
+            "skill_sql",
+            "skill_redshift",
+            "skill_duckdb",
+            "skill_bash",
+            "skill_pytest",
+            "skill_git",
+            "skill_linux",
+            "skill_aws"
+          ]
+        },
+        {
+          "label": "Python",
+          "skill_ids": [
+            "skill_pandas",
+            "skill_numpy",
+            "skill_scikit_learn",
+            "skill_pytorch",
+            "skill_lightgbm",
+            "skill_xgboost",
+            "skill_matplotlib",
+            "skill_streamlit"
+          ]
+        },
+        {
+          "label": "Tools",
+          "skill_ids": [
+            "skill_github",
+            "skill_claude_code",
+            "skill_google_ai_studio"
+          ]
+        },
+        {
+          "label": "Languages",
+          "skill_ids": [
+            "skill_french",
+            "skill_spanish"
+          ]
+        }
+      ]
+    },
+    {
+      "section": "interests",
+      "entries": [],
+      "skill_ids": [],
+      "interest_ids": [
+        "int_rugby",
+        "int_football",
+        "int_tennis",
+        "int_athletics"
+      ],
+      "skill_groups": []
+    }
+  ]
+}

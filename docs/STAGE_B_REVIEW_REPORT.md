@@ -1,5 +1,7 @@
 # Stage B — Knowledge Base Review Report
 
+> **Update (2026-11-18):** see `docs/DECISIONS.md` → "Auto-approval + Overleaf-first output". All 17 bullets are now **approved**. `bullet_qrt_arbitrage_s2`, `bullet_amazon_lost_package_s2` and `bullet_amazon_carrier_pricing_s3` are approved but listed in `cv_engine/selection_policy.json`, so they are never auto-selected. The "approve/reject" recommendations below are historical; Stage C and the approval tool notes have been updated in place. Open facts are now flagged in each generated `.tex` as `% REVIEW: metric not verified (…)`.
+
 **Date:** 2026-11-17 · **Schema:** v1.3 (package built 2026-11-17) · **Status:** all 8 files schema-valid; cross-file validator: **0 errors, 0 warnings**.
 
 ## Contents
@@ -12,12 +14,12 @@
 | `projects.json` | Football Forecasting, Cover |
 | `achievements.json` | 13 achievements, 12 metrics (3 verified) |
 | `skills.json` | 43 skills, all `confirmed` (on at least one CV); 20 have no supporting achievement |
-| `bullet_variants.json` | **17 bullets**: 12 from the current CV + 5 older alternatives; all `proposed`, `source: existing_cv` |
+| `bullet_variants.json` | **17 bullets**: 12 from the current CV + 5 older alternatives; `source: existing_cv`; imported as `proposed`, all approved 2026-11-18 |
 | `preferences.json` | Roles (priority order), US/UK, seniority, work authorization, CV constraints |
 
-`tools/validate_kb.py` checks schemas plus cross-file rules: unique IDs across namespaces; parent ↔ achievement mapping; skill/achievement/bullet references; approval hash = SHA-256 of the exact text; calendar dates, date order, `date_display` consistency; proficiency rules; no LaTeX in stored text; https URLs. With `--manifest [--application-ready]` it also checks manifests (entry ownership, approved bullets, verified courses, confirmed skills, no repeated skills or groups). `check_rendered_text()` is ready for the renderer's metadata-leak test. A mutation test caught 15/15 injected faults.
+`tools/validate_kb.py` checks schemas plus cross-file rules: unique IDs across namespaces; parent ↔ achievement mapping; skill/achievement/bullet references; approval hash = SHA-256 of the exact text; calendar dates, date order, `date_display` consistency; proficiency rules; no LaTeX in stored text; https URLs. With `--manifest [--application-ready]` it also checks manifests (entry ownership, no rejected bullets, verified courses, `cv_eligible` skills, no repeated skills or groups; since 2026-11-18 missing approval is only a warning and unconfirmed skills are not gated). `check_rendered_text()` is ready for the renderer's metadata-leak test. A mutation test caught 15/15 injected faults.
 
-## Bullets to approve
+## Bullets to approve (historical: all approved 2026-11-18)
 
 Text is stored as plain Unicode. LaTeX was converted only in encoding: `--`→–, `$\sim$`→∼, `\%`→%, `$-$`→−, `$\times$`→×, `\&`→&. The renderer converts back. Approval hashes are computed on this stored text.
 
@@ -54,13 +56,13 @@ Text is stored as plain Unicode. LaTeX was converted only in encoding: `--`→�
 7. **US `requires_sponsorship: null`:** the answer depends on whether a question asks about now or the future. The matching logic relies on the status text and notes.
 8. **Experience/project `description`:** null everywhere, to avoid unverifiable prose.
 
-## Facts still `needs_review` (do not block approval of other records)
+## Facts still `needs_review` (non-blocking; flagged as `% REVIEW` comments in generated `.tex`)
 
 Amazon ETL (6–8 h → ∼30 min, 100+ stakeholders, billion-row); lost-package £30k/week; your role on the multi-agent system; carrier detection via SQL row-count validation; Kirontech 8M rows and £1.5M; QRT "decade" of data and exact dates; football 80 files / 12,600 matches and −3.4%; Cover team size and contribution. Verified so far: F1 0.43 → 0.61, zero duplicate lanes, log-loss −8.8%.
 
-## Not yet done
+## Follow-ups
 
-- **Stage C (`default_cv.json`)** needs bullet approvals first. It will reproduce the baseline: no summary, the confirmed football bullet, skill groups (Programming & Data / Python / Tools / Languages), and interests.
-- **Renderer config** for nested skills (`skill_sql → [skill_redshift, skill_duckdb]`) belongs with the template in Phase 2.
-- **Approval tool:** `tools/approve_bullets.py` (added 2026-11-18). Interactive review (`a`/`r`/`s`/`q`) or `--approve/--reject/--revoke ID…`. Records a UTC `approved_at` and the SHA-256 of the exact text, keeps a `.bak`, re-runs the validator, and flags edited-after-approval bullets as STALE.
+- ✅ **Stage C (`default_cv.json`)** done 2026-11-18: reproduces the baseline with no summary, the confirmed football bullet, skill groups (Programming & Data / Python / Tools / Languages) and interests.
+- ✅ **Renderer config** for nested skills (`skill_sql → [skill_redshift, skill_duckdb]`) lives in `cv_engine/templates/baseline_onepage.json`.
+- **Approval tool:** `tools/approve_bullets.py`. Non-interactive by default (status list). `--all` stamps every proposed/STALE bullet, plus `--approve/--reject/--revoke ID…` and `--yes`; `--review` is optional. Records a UTC `approved_at` and the SHA-256 of the exact text, keeps a `.bak`, re-runs the validator, and flags bullets edited after stamping as STALE. Agent-written bullets are stamped automatically by `cv_engine/kb_writer.py`.
 - Project repo links and anything not on any CV.
