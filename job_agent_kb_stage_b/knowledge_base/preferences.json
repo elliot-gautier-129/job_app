@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.3",
+  "target_roles": [
+    "Data Scientist / ML Scientist / Applied Scientist",
+    "Machine Learning Engineer / AI Engineer",
+    "Forward Deployed / Deployment / Solutions Engineer at AI or data companies",
+    "Data Analyst / Business Intelligence roles with substantial ML or analytical content"
+  ],
+  "target_countries": [
+    "United States",
+    "United Kingdom"
+  ],
+  "seniority": [
+    "Graduate",
+    "New grad",
+    "Entry level",
+    "Early career"
+  ],
+  "work_authorization": [
+    {
+      "country": "United States",
+      "status": "F-1 student; eligible for OPT + STEM OPT",
+      "requires_sponsorship": null,
+      "notes": "Matching must separate OPT/STEM OPT-compatible roles from roles requiring unrestricted US work authorization.",
+      "verification_status": "verified"
+    },
+    {
+      "country": "United Kingdom",
+      "status": "British citizen; unrestricted right to work",
+      "requires_sponsorship": false,
+      "notes": null,
+      "verification_status": "verified"
+    }
+  ],
+  "cv_constraints": {
+    "language": "en",
+    "max_pages": 1,
+    "template_id": "default_cv",
+    "allow_unapproved_bullets": false,
+    "preserve_template_formatting": true,
+    "max_fit_attempts": 12
+  }
+}

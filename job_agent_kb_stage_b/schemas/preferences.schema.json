@@ -1,0 +1,138 @@
+{
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "1.3"
+    },
+    "target_roles": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "target_countries": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "seniority": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "work_authorization": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "country": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "requires_sponsorship": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "notes": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "verification_status": {
+            "enum": [
+              "verified",
+              "needs_review"
+            ]
+          }
+        },
+        "required": [
+          "country",
+          "status",
+          "requires_sponsorship",
+          "notes",
+          "verification_status"
+        ],
+        "additionalProperties": false
+      },
+      "uniqueItems": true
+    },
+    "cv_constraints": {
+      "type": "object",
+      "properties": {
+        "language": {
+          "const": "en"
+        },
+        "max_pages": {
+          "const": 1
+        },
+        "template_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*$"
+        },
+        "allow_unapproved_bullets": {
+          "const": false
+        },
+        "preserve_template_formatting": {
+          "const": true
+        },
+        "max_fit_attempts": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 30
+        }
+      },
+      "required": [
+        "language",
+        "max_pages",
+        "template_id",
+        "allow_unapproved_bullets",
+        "preserve_template_formatting",
+        "max_fit_attempts"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "schema_version",
+    "target_roles",
+    "target_countries",
+    "seniority",
+    "work_authorization",
+    "cv_constraints"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/job-agent/schema/v1.3/preferences.schema.json",
+  "title": "Job Agent preferences v1.3"
+}

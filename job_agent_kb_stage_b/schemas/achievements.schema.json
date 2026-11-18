@@ -1,0 +1,153 @@
+{
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "1.3"
+    },
+    "achievements": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]*$"
+          },
+          "parent_type": {
+            "enum": [
+              "experience",
+              "project"
+            ]
+          },
+          "parent_id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]*$"
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1
+          },
+          "facts": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "metrics": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number"
+                  ]
+                },
+                "unit": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "context": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "verification_status": {
+                  "enum": [
+                    "verified",
+                    "needs_review"
+                  ]
+                }
+              },
+              "required": [
+                "value",
+                "unit",
+                "context",
+                "verification_status"
+              ],
+              "additionalProperties": false
+            },
+            "uniqueItems": true
+          },
+          "skill_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9_]*$"
+            },
+            "uniqueItems": true
+          },
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "source_type": {
+                  "enum": [
+                    "cv",
+                    "conversation",
+                    "document",
+                    "repository",
+                    "user_confirmation",
+                    "other"
+                  ]
+                },
+                "reference": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "notes": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "source_type",
+                "reference",
+                "notes"
+              ],
+              "additionalProperties": false
+            },
+            "uniqueItems": true
+          },
+          "verification_status": {
+            "enum": [
+              "verified",
+              "needs_review"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "parent_type",
+          "parent_id",
+          "description",
+          "facts",
+          "metrics",
+          "skill_ids",
+          "evidence",
+          "verification_status"
+        ],
+        "additionalProperties": false
+      },
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "schema_version",
+    "achievements"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/job-agent/schema/v1.3/achievements.schema.json",
+  "title": "Job Agent achievements v1.3"
+}

@@ -1,0 +1,272 @@
+{
+  "schema_version": "1.3",
+  "education": [
+    {
+      "id": "edu_berkeley_ma_stats_ds",
+      "institution": "UC Berkeley",
+      "degree": "M.A.",
+      "field": "Statistics and Data Science",
+      "location": "Berkeley, CA",
+      "start_date": "2026-08",
+      "end_date": "2027-05",
+      "date_display": "2026 – 2027",
+      "expected_completion": true,
+      "grade": "4.0 GPA",
+      "coursework": [
+        {
+          "id": "course_berkeley_statistical_bayesian_inference",
+          "name": "Statistical & Bayesian Inference",
+          "status": null,
+          "grade": null,
+          "verified": true,
+          "annotation": null
+        },
+        {
+          "id": "course_berkeley_machine_learning",
+          "name": "Machine Learning",
+          "status": null,
+          "grade": null,
+          "verified": true,
+          "annotation": null
+        },
+        {
+          "id": "course_berkeley_computational_statistics",
+          "name": "Computational Statistics",
+          "status": null,
+          "grade": null,
+          "verified": true,
+          "annotation": null
+        },
+        {
+          "id": "course_berkeley_high_dimensional_statistics",
+          "name": "High-Dimensional Statistics",
+          "status": null,
+          "grade": null,
+          "verified": true,
+          "annotation": null
+        }
+      ],
+      "honors": [],
+      "cv_eligible": true
+    },
+    {
+      "id": "edu_warwick_bsc_morse",
+      "institution": "University of Warwick",
+      "degree": "B.Sc.",
+      "field": "MORSE (Mathematics, Operational Research, Statistics & Economics)",
+      "location": "Coventry, UK",
+      "start_date": "2022",
+      "end_date": "2025",
+      "date_display": "2022 – 2025",
+      "expected_completion": false,
+      "grade": "80%",
+      "coursework": [
+        {
+          "id": "course_warwick_mathematical_programming_1",
+          "name": "Mathematical Programming 1",
+          "status": "completed",
+          "grade": "96",
+          "verified": true,
+          "annotation": null
+        },
+        {
+          "id": "course_warwick_sets_and_numbers",
+          "name": "Sets and Numbers",
+          "status": "completed",
+          "grade": "73",
+          "verified": true,
+          "annotation": null
+        },
+        {
+          "id": "course_warwick_calculus_1",
+          "name": "Calculus 1",
+          "status": "completed",
+          "grade": "81",
+          "verified": true,
+          "annotation": null
+        },
+        {
+          "id": "course_warwick_calculus_2",
+          "name": "Calculus 2",
+          "status": "completed",
+          "grade": "70",
+          "verified": true,
+          "annotation": null
+        },
+        {
+          "id": "course_warwick_vectors_and_matrices",
+          "name": "Vectors and Matrices",
+          "status": "completed",
+          "grade": "64",
+          "verified": true,
+          "annotation": null
+        },
+        {
+          "id": "course_warwick_intro_statistical_modelling",
+          "name": "Introduction to Statistical Modelling",
+          "status": "completed",
+          "grade": "70",
+          "verified": true,
+          "annotation": null
+        },
+        {
+          "id": "course_warwick_probability_1",
+          "name": "Probability 1",
+          "status": "completed",
+          "grade": "76",
+          "verified": true,
+          "annotation": null
+        },
+        {
+          "id": "course_warwick_probability_2",
+          "name": "Probability 2",
+          "status": "completed",
+          "grade": "78",
+          "verified": true,
+          "annotation": null
+        },
+        {
+          "id": "course_warwick_mathematical_economics_1a",
+          "name": "Mathematical Economics 1A",
+          "status": "completed",
+          "grade": "76",
+          "verified": true,
+          "annotation": null
+        },
+        {
+          "id": "course_warwick_finance_in_practice",
+          "name": "Finance in Practice",
+          "status": "completed",
+          "grade": "73",
+          "verified": true,
+          "annotation": null
+        },
+        {
+          "id": "course_warwick_programming_for_scientists",
+          "name": "Programming for Scientists",
+          "status": "completed",
+          "grade": "92",
+          "verified": true,
+          "annotation": null
+        },
+        {
+          "id": "course_warwick_mathematical_analysis_3",
+          "name": "Mathematical Analysis 3",
+          "status": "completed",
+          "grade": "87",
+          "verified": true,
+          "annotation": null
+        },
+        {
+          "id": "course_warwick_stochastic_processes",
+          "name": "Stochastic Processes",
+          "status": "completed",
+          "grade": "78",
+          "verified": true,
+          "annotation": null
+        },
+        {
+          "id": "course_warwick_math_methods_stats_prob",
+          "name": "Mathematical Methods for Statistics and Probability",
+          "status": "completed",
+          "grade": "89",
+          "verified": true,
+          "annotation": null
+        },
+        {
+          "id": "course_warwick_probability_for_math_stats",
+          "name": "Probability for Mathematical Statistics",
+          "status": "completed",
+          "grade": "80",
+          "verified": true,
+          "annotation": null
+        },
+        {
+          "id": "course_warwick_mathematical_statistics",
+          "name": "Mathematical Statistics",
+          "status": "completed",
+          "grade": "87",
+          "verified": true,
+          "annotation": null
+        },
+        {
+          "id": "course_warwick_linear_statistical_modelling_r",
+          "name": "Linear Statistical Modelling with R",
+          "status": "completed",
+          "grade": "84",
+          "verified": true,
+          "annotation": null
+        },
+        {
+          "id": "course_warwick_python_data_analytic_tasks",
+          "name": "Python for Data-Analytic Tasks",
+          "status": "completed",
+          "grade": "88",
+          "verified": true,
+          "annotation": null
+        },
+        {
+          "id": "course_warwick_simulation",
+          "name": "Simulation",
+          "status": "completed",
+          "grade": "80",
+          "verified": true,
+          "annotation": null
+        },
+        {
+          "id": "course_warwick_matrix_analysis_algorithms",
+          "name": "Matrix Analysis & Algorithms",
+          "status": "completed",
+          "grade": "67",
+          "verified": true,
+          "annotation": null
+        },
+        {
+          "id": "course_warwick_mathematics_of_ml",
+          "name": "Mathematics of Machine Learning",
+          "status": "completed",
+          "grade": "76",
+          "verified": true,
+          "annotation": null
+        },
+        {
+          "id": "course_warwick_programming_for_data_science",
+          "name": "Programming for Data Science",
+          "status": "completed",
+          "grade": "83",
+          "verified": true,
+          "annotation": null
+        },
+        {
+          "id": "course_warwick_topics_in_data_science",
+          "name": "Topics in Data Science",
+          "status": "completed",
+          "grade": "92",
+          "verified": true,
+          "annotation": "reinforcement learning, Bayesian inference/MCMC, generative models"
+        },
+        {
+          "id": "course_warwick_professional_practice_data_analysis",
+          "name": "Professional Practice of Data Analysis",
+          "status": "completed",
+          "grade": "70",
+          "verified": true,
+          "annotation": null
+        },
+        {
+          "id": "course_warwick_machine_learning_frameworks",
+          "name": "Machine Learning Frameworks",
+          "status": "completed",
+          "grade": "83",
+          "verified": true,
+          "annotation": null
+        }
+      ],
+      "honors": [
+        "First Class Honours",
+        "Top 5% of cohort"
+      ],
+      "cv_eligible": true
+    }
+  ]
+}

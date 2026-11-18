@@ -1,0 +1,547 @@
+{
+  "schema_version": "1.3",
+  "skills": [
+    {
+      "id": "skill_python",
+      "name": "Python",
+      "category": "programming",
+      "proficiency": null,
+      "aliases": [],
+      "evidence_achievement_ids": [
+        "ach_amazon_lost_package_model",
+        "ach_kirontech_provider_graph",
+        "ach_kirontech_fraud_detection",
+        "ach_kirontech_streamlit_dashboard",
+        "ach_football_pipeline",
+        "ach_football_lightgbm_model"
+      ],
+      "cv_eligible": true,
+      "confirmation_status": "confirmed"
+    },
+    {
+      "id": "skill_r",
+      "name": "R",
+      "category": "programming",
+      "proficiency": null,
+      "aliases": [],
+      "evidence_achievement_ids": [],
+      "cv_eligible": true,
+      "confirmation_status": "confirmed"
+    },
+    {
+      "id": "skill_sql",
+      "name": "SQL",
+      "category": "programming",
+      "proficiency": null,
+      "aliases": [],
+      "evidence_achievement_ids": [
+        "ach_amazon_etl_incremental",
+        "ach_amazon_carrier_pricing_fix",
+        "ach_kirontech_provider_graph",
+        "ach_football_pipeline"
+      ],
+      "cv_eligible": true,
+      "confirmation_status": "confirmed"
+    },
+    {
+      "id": "skill_redshift",
+      "name": "Redshift",
+      "category": "data_engineering",
+      "proficiency": null,
+      "aliases": [
+        "Amazon Redshift"
+      ],
+      "evidence_achievement_ids": [
+        "ach_amazon_etl_incremental",
+        "ach_amazon_multiagent_ai"
+      ],
+      "cv_eligible": true,
+      "confirmation_status": "confirmed"
+    },
+    {
+      "id": "skill_duckdb",
+      "name": "DuckDB",
+      "category": "data_engineering",
+      "proficiency": null,
+      "aliases": [],
+      "evidence_achievement_ids": [],
+      "cv_eligible": true,
+      "confirmation_status": "confirmed"
+    },
+    {
+      "id": "skill_bash",
+      "name": "Bash",
+      "category": "programming",
+      "proficiency": null,
+      "aliases": [
+        "shell scripting"
+      ],
+      "evidence_achievement_ids": [],
+      "cv_eligible": true,
+      "confirmation_status": "confirmed"
+    },
+    {
+      "id": "skill_pytest",
+      "name": "pytest",
+      "category": "tools",
+      "proficiency": null,
+      "aliases": [],
+      "evidence_achievement_ids": [],
+      "cv_eligible": true,
+      "confirmation_status": "confirmed"
+    },
+    {
+      "id": "skill_git",
+      "name": "Git",
+      "category": "tools",
+      "proficiency": null,
+      "aliases": [],
+      "evidence_achievement_ids": [],
+      "cv_eligible": true,
+      "confirmation_status": "confirmed"
+    },
+    {
+      "id": "skill_linux",
+      "name": "Linux",
+      "category": "tools",
+      "proficiency": null,
+      "aliases": [],
+      "evidence_achievement_ids": [],
+      "cv_eligible": true,
+      "confirmation_status": "confirmed"
+    },
+    {
+      "id": "skill_aws",
+      "name": "AWS",
+      "category": "cloud",
+      "proficiency": null,
+      "aliases": [
+        "Amazon Web Services"
+      ],
+      "evidence_achievement_ids": [
+        "ach_amazon_etl_incremental",
+        "ach_amazon_multiagent_ai"
+      ],
+      "cv_eligible": true,
+      "confirmation_status": "confirmed"
+    },
+    {
+      "id": "skill_pandas",
+      "name": "Pandas",
+      "category": "programming",
+      "proficiency": null,
+      "aliases": [],
+      "evidence_achievement_ids": [
+        "ach_kirontech_provider_graph"
+      ],
+      "cv_eligible": true,
+      "confirmation_status": "confirmed"
+    },
+    {
+      "id": "skill_numpy",
+      "name": "NumPy",
+      "category": "programming",
+      "proficiency": null,
+      "aliases": [],
+      "evidence_achievement_ids": [],
+      "cv_eligible": true,
+      "confirmation_status": "confirmed"
+    },
+    {
+      "id": "skill_scikit_learn",
+      "name": "Scikit-learn",
+      "category": "machine_learning",
+      "proficiency": null,
+      "aliases": [
+        "scikit-learn",
+        "sklearn"
+      ],
+      "evidence_achievement_ids": [],
+      "cv_eligible": true,
+      "confirmation_status": "confirmed"
+    },
+    {
+      "id": "skill_pytorch",
+      "name": "PyTorch",
+      "category": "machine_learning",
+      "proficiency": null,
+      "aliases": [
+        "torch"
+      ],
+      "evidence_achievement_ids": [],
+      "cv_eligible": true,
+      "confirmation_status": "confirmed"
+    },
+    {
+      "id": "skill_lightgbm",
+      "name": "LightGBM",
+      "category": "machine_learning",
+      "proficiency": null,
+      "aliases": [],
+      "evidence_achievement_ids": [
+        "ach_amazon_lost_package_model",
+        "ach_football_lightgbm_model"
+      ],
+      "cv_eligible": true,
+      "confirmation_status": "confirmed"
+    },
+    {
+      "id": "skill_xgboost",
+      "name": "XGBoost",
+      "category": "machine_learning",
+      "proficiency": null,
+      "aliases": [],
+      "evidence_achievement_ids": [],
+      "cv_eligible": true,
+      "confirmation_status": "confirmed"
+    },
+    {
+      "id": "skill_matplotlib",
+      "name": "Matplotlib",
+      "category": "programming",
+      "proficiency": null,
+      "aliases": [],
+      "evidence_achievement_ids": [],
+      "cv_eligible": true,
+      "confirmation_status": "confirmed"
+    },
+    {
+      "id": "skill_streamlit",
+      "name": "Streamlit",
+      "category": "tools",
+      "proficiency": null,
+      "aliases": [],
+      "evidence_achievement_ids": [
+        "ach_kirontech_streamlit_dashboard",
+        "ach_football_lightgbm_model"
+      ],
+      "cv_eligible": true,
+      "confirmation_status": "confirmed"
+    },
+    {
+      "id": "skill_github",
+      "name": "GitHub",
+      "category": "tools",
+      "proficiency": null,
+      "aliases": [],
+      "evidence_achievement_ids": [],
+      "cv_eligible": true,
+      "confirmation_status": "confirmed"
+    },
+    {
+      "id": "skill_claude_code",
+      "name": "Claude Code",
+      "category": "tools",
+      "proficiency": null,
+      "aliases": [],
+      "evidence_achievement_ids": [],
+      "cv_eligible": true,
+      "confirmation_status": "confirmed"
+    },
+    {
+      "id": "skill_google_ai_studio",
+      "name": "Google AI Studio",
+      "category": "tools",
+      "proficiency": null,
+      "aliases": [],
+      "evidence_achievement_ids": [],
+      "cv_eligible": true,
+      "confirmation_status": "confirmed"
+    },
+    {
+      "id": "skill_french",
+      "name": "French",
+      "category": "spoken_language",
+      "proficiency": "fluent",
+      "aliases": [],
+      "evidence_achievement_ids": [],
+      "cv_eligible": true,
+      "confirmation_status": "confirmed"
+    },
+    {
+      "id": "skill_spanish",
+      "name": "Spanish",
+      "category": "spoken_language",
+      "proficiency": "intermediate",
+      "aliases": [],
+      "evidence_achievement_ids": [],
+      "cv_eligible": true,
+      "confirmation_status": "confirmed"
+    },
+    {
+      "id": "skill_quarto",
+      "name": "Quarto",
+      "category": "tools",
+      "proficiency": null,
+      "aliases": [],
+      "evidence_achievement_ids": [],
+      "cv_eligible": true,
+      "confirmation_status": "confirmed"
+    },
+    {
+      "id": "skill_etl_pipelines",
+      "name": "ETL pipelines",
+      "category": "data_engineering",
+      "proficiency": null,
+      "aliases": [
+        "ETL",
+        "data pipelines"
+      ],
+      "evidence_achievement_ids": [
+        "ach_amazon_etl_incremental",
+        "ach_football_pipeline"
+      ],
+      "cv_eligible": true,
+      "confirmation_status": "confirmed"
+    },
+    {
+      "id": "skill_dbt",
+      "name": "dbt",
+      "category": "data_engineering",
+      "proficiency": null,
+      "aliases": [
+        "data build tool"
+      ],
+      "evidence_achievement_ids": [],
+      "cv_eligible": true,
+      "confirmation_status": "confirmed"
+    },
+    {
+      "id": "skill_dagster",
+      "name": "Dagster",
+      "category": "data_engineering",
+      "proficiency": null,
+      "aliases": [],
+      "evidence_achievement_ids": [],
+      "cv_eligible": true,
+      "confirmation_status": "confirmed"
+    },
+    {
+      "id": "skill_incremental_loading",
+      "name": "Incremental loading",
+      "category": "data_engineering",
+      "proficiency": null,
+      "aliases": [
+        "incremental processing",
+        "change data processing"
+      ],
+      "evidence_achievement_ids": [
+        "ach_amazon_etl_incremental"
+      ],
+      "cv_eligible": true,
+      "confirmation_status": "confirmed"
+    },
+    {
+      "id": "skill_dependency_orchestration",
+      "name": "Dependency-aware orchestration",
+      "category": "data_engineering",
+      "proficiency": null,
+      "aliases": [
+        "pipeline orchestration"
+      ],
+      "evidence_achievement_ids": [],
+      "cv_eligible": true,
+      "confirmation_status": "confirmed"
+    },
+    {
+      "id": "skill_aws_bedrock",
+      "name": "AWS Bedrock",
+      "category": "cloud",
+      "proficiency": null,
+      "aliases": [
+        "Amazon Bedrock"
+      ],
+      "evidence_achievement_ids": [
+        "ach_amazon_multiagent_ai"
+      ],
+      "cv_eligible": true,
+      "confirmation_status": "confirmed"
+    },
+    {
+      "id": "skill_aws_lambda",
+      "name": "AWS Lambda",
+      "category": "cloud",
+      "proficiency": null,
+      "aliases": [],
+      "evidence_achievement_ids": [
+        "ach_amazon_multiagent_ai"
+      ],
+      "cv_eligible": true,
+      "confirmation_status": "confirmed"
+    },
+    {
+      "id": "skill_amazon_kendra",
+      "name": "Amazon Kendra",
+      "category": "cloud",
+      "proficiency": null,
+      "aliases": [
+        "Kendra"
+      ],
+      "evidence_achievement_ids": [
+        "ach_amazon_multiagent_ai"
+      ],
+      "cv_eligible": true,
+      "confirmation_status": "confirmed"
+    },
+    {
+      "id": "skill_gemini",
+      "name": "Gemini",
+      "category": "tools",
+      "proficiency": null,
+      "aliases": [
+        "Google Gemini"
+      ],
+      "evidence_achievement_ids": [
+        "ach_cover_web_app"
+      ],
+      "cv_eligible": true,
+      "confirmation_status": "confirmed"
+    },
+    {
+      "id": "skill_excel",
+      "name": "Excel",
+      "category": "tools",
+      "proficiency": null,
+      "aliases": [
+        "Microsoft Excel"
+      ],
+      "evidence_achievement_ids": [
+        "ach_qrt_pairs_trading"
+      ],
+      "cv_eligible": true,
+      "confirmation_status": "confirmed"
+    },
+    {
+      "id": "skill_multi_agent_systems",
+      "name": "Multi-agent AI systems",
+      "category": "machine_learning",
+      "proficiency": null,
+      "aliases": [
+        "LLM agents",
+        "AI agents"
+      ],
+      "evidence_achievement_ids": [
+        "ach_amazon_multiagent_ai"
+      ],
+      "cv_eligible": true,
+      "confirmation_status": "confirmed"
+    },
+    {
+      "id": "skill_text_to_sql",
+      "name": "Text-to-SQL",
+      "category": "machine_learning",
+      "proficiency": null,
+      "aliases": [],
+      "evidence_achievement_ids": [
+        "ach_amazon_multiagent_ai"
+      ],
+      "cv_eligible": true,
+      "confirmation_status": "confirmed"
+    },
+    {
+      "id": "skill_cross_validation",
+      "name": "Cross-validation",
+      "category": "statistics",
+      "proficiency": null,
+      "aliases": [
+        "hyperparameter tuning"
+      ],
+      "evidence_achievement_ids": [
+        "ach_amazon_lost_package_model"
+      ],
+      "cv_eligible": true,
+      "confirmation_status": "confirmed"
+    },
+    {
+      "id": "skill_walk_forward_validation",
+      "name": "Walk-forward cross-validation",
+      "category": "statistics",
+      "proficiency": null,
+      "aliases": [
+        "time-series cross-validation",
+        "walk-forward validation"
+      ],
+      "evidence_achievement_ids": [
+        "ach_football_lightgbm_model"
+      ],
+      "cv_eligible": true,
+      "confirmation_status": "confirmed"
+    },
+    {
+      "id": "skill_anomaly_detection",
+      "name": "Anomaly detection",
+      "category": "machine_learning",
+      "proficiency": null,
+      "aliases": [
+        "Local Outlier Factor",
+        "LOF",
+        "outlier detection"
+      ],
+      "evidence_achievement_ids": [
+        "ach_kirontech_fraud_detection"
+      ],
+      "cv_eligible": true,
+      "confirmation_status": "confirmed"
+    },
+    {
+      "id": "skill_graph_analytics",
+      "name": "Graph analytics",
+      "category": "machine_learning",
+      "proficiency": null,
+      "aliases": [
+        "network analysis",
+        "Depth First Search",
+        "cosine similarity graph"
+      ],
+      "evidence_achievement_ids": [
+        "ach_kirontech_provider_graph",
+        "ach_kirontech_fraud_detection"
+      ],
+      "cv_eligible": true,
+      "confirmation_status": "confirmed"
+    },
+    {
+      "id": "skill_backtesting",
+      "name": "Backtesting",
+      "category": "domain",
+      "proficiency": null,
+      "aliases": [],
+      "evidence_achievement_ids": [
+        "ach_qrt_pairs_trading",
+        "ach_football_market_benchmark"
+      ],
+      "cv_eligible": true,
+      "confirmation_status": "confirmed"
+    },
+    {
+      "id": "skill_frequency_severity_modelling",
+      "name": "Frequency-severity modelling",
+      "category": "statistics",
+      "proficiency": null,
+      "aliases": [
+        "Poisson modelling",
+        "insurance pricing"
+      ],
+      "evidence_achievement_ids": [
+        "ach_cover_pricing_model"
+      ],
+      "cv_eligible": true,
+      "confirmation_status": "confirmed"
+    },
+    {
+      "id": "skill_data_quality_validation",
+      "name": "Data quality validation",
+      "category": "data_engineering",
+      "proficiency": null,
+      "aliases": [
+        "data validation",
+        "root-cause analysis"
+      ],
+      "evidence_achievement_ids": [
+        "ach_amazon_carrier_pricing_fix"
+      ],
+      "cv_eligible": true,
+      "confirmation_status": "confirmed"
+    }
+  ]
+}

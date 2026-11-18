@@ -1,0 +1,547 @@
+{
+  "schema_version": "1.3",
+  "achievements": [
+    {
+      "id": "ach_amazon_etl_incremental",
+      "parent_type": "experience",
+      "parent_id": "exp_amazon_bie_intern",
+      "description": "Rebuilt Redshift ETL pipelines to process only changed data, cutting daily runtime.",
+      "facts": [
+        "Rebuilt Redshift ETL pipelines to process only changed data (incremental processing)",
+        "Pipelines ran over billion-row datasets",
+        "Daily runtime reduced from 6–8 hours to ~30 minutes",
+        "The pipelines supported a dashboard used by 100+ stakeholders"
+      ],
+      "metrics": [
+        {
+          "value": "6–8 hours → ~30 minutes",
+          "unit": "daily runtime",
+          "context": "Redshift ETL pipelines after incremental rebuild",
+          "verification_status": "needs_review"
+        },
+        {
+          "value": "100+",
+          "unit": "stakeholders",
+          "context": "dashboard users supported by the pipelines",
+          "verification_status": "needs_review"
+        },
+        {
+          "value": "billion-row",
+          "unit": "dataset scale",
+          "context": "datasets processed by the pipelines",
+          "verification_status": "needs_review"
+        }
+      ],
+      "skill_ids": [
+        "skill_redshift",
+        "skill_sql",
+        "skill_etl_pipelines",
+        "skill_incremental_loading",
+        "skill_aws"
+      ],
+      "evidence": [
+        {
+          "source_type": "cv",
+          "reference": "S1 baseline_cv.tex (current Overleaf CV)",
+          "notes": null
+        },
+        {
+          "source_type": "cv",
+          "reference": "S2 Elliot Gautier CV.pdf",
+          "notes": null
+        },
+        {
+          "source_type": "cv",
+          "reference": "S3 Elliot Gautier Resume de.pdf",
+          "notes": null
+        }
+      ],
+      "verification_status": "needs_review"
+    },
+    {
+      "id": "ach_amazon_lost_package_model",
+      "parent_type": "experience",
+      "parent_id": "exp_amazon_bie_intern",
+      "description": "Built and tuned a LightGBM classifier to predict lost packages, with automated alerts.",
+      "facts": [
+        "Built and tuned a LightGBM classifier to predict lost packages (user confirmed ownership)",
+        "Used cross-validated hyperparameter tuning",
+        "F1 improved from 0.43 to 0.61",
+        "Automated alerts flagged an estimated £30k of potentially lost packages per week",
+        "Alerts were sent to warehouse teams"
+      ],
+      "metrics": [
+        {
+          "value": "0.43 → 0.61",
+          "unit": "F1 score",
+          "context": "lost-package classifier after cross-validated tuning",
+          "verification_status": "verified"
+        },
+        {
+          "value": "£30k",
+          "unit": "GBP per week (estimated)",
+          "context": "potentially lost packages flagged by automated alerts",
+          "verification_status": "needs_review"
+        }
+      ],
+      "skill_ids": [
+        "skill_lightgbm",
+        "skill_python",
+        "skill_cross_validation"
+      ],
+      "evidence": [
+        {
+          "source_type": "cv",
+          "reference": "S1 baseline_cv.tex (current Overleaf CV)",
+          "notes": "F1 figures and 'Built' appear in S1 only"
+        },
+        {
+          "source_type": "cv",
+          "reference": "S2 Elliot Gautier CV.pdf",
+          "notes": null
+        },
+        {
+          "source_type": "cv",
+          "reference": "S3 Elliot Gautier Resume de.pdf",
+          "notes": null
+        },
+        {
+          "source_type": "user_confirmation",
+          "reference": "User confirmation, 2026-11-17 (audits/STAGE_A_AUDIT_v1_1_UPDATE.md)",
+          "notes": "User built and tuned the model; F1 0.43 → 0.61 confirmed"
+        }
+      ],
+      "verification_status": "needs_review"
+    },
+    {
+      "id": "ach_amazon_multiagent_ai",
+      "parent_type": "experience",
+      "parent_id": "exp_amazon_bie_intern",
+      "description": "Deployed a multi-agent AI system combining document retrieval with a text-to-SQL agent.",
+      "facts": [
+        "Deployed a multi-agent AI system on AWS Bedrock and AWS Lambda",
+        "Combined Amazon Kendra retrieval over financial knowledge bases with a text-to-SQL agent",
+        "The text-to-SQL agent queried Redshift from natural-language questions"
+      ],
+      "metrics": [],
+      "skill_ids": [
+        "skill_aws_bedrock",
+        "skill_aws_lambda",
+        "skill_amazon_kendra",
+        "skill_redshift",
+        "skill_multi_agent_systems",
+        "skill_text_to_sql",
+        "skill_aws"
+      ],
+      "evidence": [
+        {
+          "source_type": "cv",
+          "reference": "S1 baseline_cv.tex (current Overleaf CV)",
+          "notes": null
+        },
+        {
+          "source_type": "cv",
+          "reference": "S2 Elliot Gautier CV.pdf",
+          "notes": null
+        },
+        {
+          "source_type": "cv",
+          "reference": "S3 Elliot Gautier Resume de.pdf",
+          "notes": null
+        }
+      ],
+      "verification_status": "needs_review"
+    },
+    {
+      "id": "ach_amazon_carrier_pricing_fix",
+      "parent_type": "experience",
+      "parent_id": "exp_amazon_bie_intern",
+      "description": "Found duplicated/placeholder carrier pricing feeding route assignment and drove the cross-team fix.",
+      "facts": [
+        "Identified duplicated and placeholder per-mile costs in 3P carrier pricing tables",
+        "The pricing tables fed Amazon's route-assignment algorithm",
+        "Traced the root cause across two teams",
+        "Drove the cross-team fix to zero duplicate lanes (user-preferred framing)",
+        "Detection used SQL row-count validation (S3 only; unconfirmed)"
+      ],
+      "metrics": [
+        {
+          "value": 0,
+          "unit": "duplicate lanes",
+          "context": "carrier pricing tables after the cross-team fix",
+          "verification_status": "verified"
+        }
+      ],
+      "skill_ids": [
+        "skill_sql",
+        "skill_data_quality_validation"
+      ],
+      "evidence": [
+        {
+          "source_type": "cv",
+          "reference": "S1 baseline_cv.tex (current Overleaf CV)",
+          "notes": null
+        },
+        {
+          "source_type": "cv",
+          "reference": "S3 Elliot Gautier Resume de.pdf",
+          "notes": "S3 wording: SQL row-count validation; 'coordinated' fix"
+        },
+        {
+          "source_type": "user_confirmation",
+          "reference": "User confirmation, 2026-11-17 (audits/STAGE_A_AUDIT_v1_1_UPDATE.md)",
+          "notes": "'Drove … zero duplicate lanes' framing confirmed"
+        }
+      ],
+      "verification_status": "needs_review"
+    },
+    {
+      "id": "ach_kirontech_provider_graph",
+      "parent_type": "experience",
+      "parent_id": "exp_kirontech_ds_intern",
+      "description": "Built provider–patient datasets from claims data and modelled providers as a similarity graph.",
+      "facts": [
+        "Constructed provider-patient datasets from an 8M-row claims database",
+        "Used SQL and Python/pandas",
+        "Modelled providers as a cosine-similarity-weighted graph",
+        "Surfaced disproportionately connected provider clusters"
+      ],
+      "metrics": [
+        {
+          "value": "8M",
+          "unit": "rows",
+          "context": "claims database",
+          "verification_status": "needs_review"
+        }
+      ],
+      "skill_ids": [
+        "skill_sql",
+        "skill_python",
+        "skill_pandas",
+        "skill_graph_analytics"
+      ],
+      "evidence": [
+        {
+          "source_type": "cv",
+          "reference": "S1 baseline_cv.tex (current Overleaf CV)",
+          "notes": null
+        },
+        {
+          "source_type": "cv",
+          "reference": "S2 Elliot Gautier CV.pdf",
+          "notes": null
+        },
+        {
+          "source_type": "cv",
+          "reference": "S3 Elliot Gautier Resume de.pdf",
+          "notes": null
+        }
+      ],
+      "verification_status": "needs_review"
+    },
+    {
+      "id": "ach_kirontech_fraud_detection",
+      "parent_type": "experience",
+      "parent_id": "exp_kirontech_ds_intern",
+      "description": "Unsupervised anomaly detection on the provider graph that contributed to finding a fraud network.",
+      "facts": [
+        "Engineered node-level features for unsupervised anomaly detection",
+        "Used Local Outlier Factor",
+        "Applied Depth First Search to isolate collusive subgraphs",
+        "Contributed to the identification of a fraudulent claims network worth £1.5M"
+      ],
+      "metrics": [
+        {
+          "value": "£1.5M",
+          "unit": "GBP",
+          "context": "value of the fraudulent claims network identified",
+          "verification_status": "needs_review"
+        }
+      ],
+      "skill_ids": [
+        "skill_anomaly_detection",
+        "skill_graph_analytics",
+        "skill_python"
+      ],
+      "evidence": [
+        {
+          "source_type": "cv",
+          "reference": "S1 baseline_cv.tex (current Overleaf CV)",
+          "notes": null
+        },
+        {
+          "source_type": "cv",
+          "reference": "S2 Elliot Gautier CV.pdf",
+          "notes": null
+        },
+        {
+          "source_type": "cv",
+          "reference": "S3 Elliot Gautier Resume de.pdf",
+          "notes": null
+        }
+      ],
+      "verification_status": "needs_review"
+    },
+    {
+      "id": "ach_kirontech_streamlit_dashboard",
+      "parent_type": "experience",
+      "parent_id": "exp_kirontech_ds_intern",
+      "description": "Built a Streamlit dashboard presenting datasets and model results to fraud investigators.",
+      "facts": [
+        "Developed an interactive Streamlit dashboard",
+        "Presented datasets and model results to fraud investigators"
+      ],
+      "metrics": [],
+      "skill_ids": [
+        "skill_streamlit",
+        "skill_python"
+      ],
+      "evidence": [
+        {
+          "source_type": "cv",
+          "reference": "S1 baseline_cv.tex (current Overleaf CV)",
+          "notes": null
+        },
+        {
+          "source_type": "cv",
+          "reference": "S2 Elliot Gautier CV.pdf",
+          "notes": null
+        },
+        {
+          "source_type": "cv",
+          "reference": "S3 Elliot Gautier Resume de.pdf",
+          "notes": null
+        }
+      ],
+      "verification_status": "needs_review"
+    },
+    {
+      "id": "ach_qrt_pairs_trading",
+      "parent_type": "experience",
+      "parent_id": "exp_qrt_da_intern",
+      "description": "Researched and backtested a Pepsi/Coca-Cola pairs-trading strategy.",
+      "facts": [
+        "Researched a pairs-trading strategy (user-confirmed terminology)",
+        "Used a decade of Pepsi and Coca-Cola price data",
+        "Backtested the spread in Excel",
+        "Presented results to the team"
+      ],
+      "metrics": [],
+      "skill_ids": [
+        "skill_excel",
+        "skill_backtesting"
+      ],
+      "evidence": [
+        {
+          "source_type": "cv",
+          "reference": "S1 baseline_cv.tex (current Overleaf CV)",
+          "notes": null
+        },
+        {
+          "source_type": "cv",
+          "reference": "S2 Elliot Gautier CV.pdf",
+          "notes": "S2/S3 call it an 'arbitrage strategy'"
+        },
+        {
+          "source_type": "cv",
+          "reference": "S3 Elliot Gautier Resume de.pdf",
+          "notes": null
+        },
+        {
+          "source_type": "user_confirmation",
+          "reference": "User confirmation, 2026-11-17 (audits/STAGE_A_AUDIT_v1_1_UPDATE.md)",
+          "notes": "Strategy is to be described as pairs trading"
+        }
+      ],
+      "verification_status": "needs_review"
+    },
+    {
+      "id": "ach_football_pipeline",
+      "parent_type": "project",
+      "parent_id": "proj_football_forecasting",
+      "description": "Reproducible SQL + Python research pipeline with leakage-safe features enforced by tests.",
+      "facts": [
+        "Built a reproducible SQL + Python pipeline",
+        "Merged 80 files into 12,600 matches across five leagues",
+        "Look-ahead-safe (leakage-safe) lagged features enforced through automated tests"
+      ],
+      "metrics": [
+        {
+          "value": 80,
+          "unit": "source files",
+          "context": "merged by the pipeline",
+          "verification_status": "needs_review"
+        },
+        {
+          "value": 12600,
+          "unit": "matches",
+          "context": "five leagues",
+          "verification_status": "needs_review"
+        }
+      ],
+      "skill_ids": [
+        "skill_python",
+        "skill_sql",
+        "skill_etl_pipelines"
+      ],
+      "evidence": [
+        {
+          "source_type": "cv",
+          "reference": "S1 baseline_cv.tex (current Overleaf CV)",
+          "notes": null
+        },
+        {
+          "source_type": "cv",
+          "reference": "S2 Elliot Gautier CV.pdf",
+          "notes": null
+        },
+        {
+          "source_type": "cv",
+          "reference": "S3 Elliot Gautier Resume de.pdf",
+          "notes": null
+        }
+      ],
+      "verification_status": "needs_review"
+    },
+    {
+      "id": "ach_football_lightgbm_model",
+      "parent_type": "project",
+      "parent_id": "proj_football_forecasting",
+      "description": "LightGBM multiclass match model under walk-forward CV, benchmarked against bookmaker odds.",
+      "facts": [
+        "Trained a LightGBM multiclass model",
+        "Used walk-forward cross-validation",
+        "Reduced log loss by 8.8% relative to a naive baseline",
+        "Benchmarked predictions against bookmaker odds in a Streamlit dashboard"
+      ],
+      "metrics": [
+        {
+          "value": "8.8%",
+          "unit": "log-loss reduction",
+          "context": "relative to a naive baseline under walk-forward CV",
+          "verification_status": "verified"
+        }
+      ],
+      "skill_ids": [
+        "skill_lightgbm",
+        "skill_walk_forward_validation",
+        "skill_streamlit",
+        "skill_python"
+      ],
+      "evidence": [
+        {
+          "source_type": "cv",
+          "reference": "S2 Elliot Gautier CV.pdf",
+          "notes": null
+        },
+        {
+          "source_type": "cv",
+          "reference": "S3 Elliot Gautier Resume de.pdf",
+          "notes": null
+        },
+        {
+          "source_type": "user_confirmation",
+          "reference": "User confirmation, 2026-11-17 (audits/STAGE_A_AUDIT_v1_1_UPDATE.md)",
+          "notes": "User confirmed this bullet is the accurate football result"
+        }
+      ],
+      "verification_status": "verified"
+    },
+    {
+      "id": "ach_football_market_benchmark",
+      "parent_type": "project",
+      "parent_id": "proj_football_forecasting",
+      "description": "Compared model probabilities with market odds and backtested a betting strategy.",
+      "facts": [
+        "Benchmarked model probabilities against market-implied bookmaker odds",
+        "Backtested a betting strategy with a −3.4% return",
+        "Concluded no exploitable edge after costs, consistent with market efficiency"
+      ],
+      "metrics": [
+        {
+          "value": "−3.4%",
+          "unit": "return",
+          "context": "betting strategy backtest",
+          "verification_status": "needs_review"
+        }
+      ],
+      "skill_ids": [
+        "skill_backtesting"
+      ],
+      "evidence": [
+        {
+          "source_type": "cv",
+          "reference": "S1 baseline_cv.tex (current Overleaf CV)",
+          "notes": null
+        }
+      ],
+      "verification_status": "needs_review"
+    },
+    {
+      "id": "ach_cover_web_app",
+      "parent_type": "project",
+      "parent_id": "proj_cover_hackathon",
+      "description": "Co-built and deployed a web app that insures everyday products using Gemini verification.",
+      "facts": [
+        "Co-built and deployed a web app for insuring everyday products",
+        "Used Gemini to verify product photos and receipts",
+        "Automatically generated policy quotes"
+      ],
+      "metrics": [],
+      "skill_ids": [
+        "skill_gemini"
+      ],
+      "evidence": [
+        {
+          "source_type": "cv",
+          "reference": "S1 baseline_cv.tex (current Overleaf CV)",
+          "notes": null
+        },
+        {
+          "source_type": "cv",
+          "reference": "S2 Elliot Gautier CV.pdf",
+          "notes": null
+        },
+        {
+          "source_type": "cv",
+          "reference": "S3 Elliot Gautier Resume de.pdf",
+          "notes": null
+        }
+      ],
+      "verification_status": "needs_review"
+    },
+    {
+      "id": "ach_cover_pricing_model",
+      "parent_type": "project",
+      "parent_id": "proj_cover_hackathon",
+      "description": "Designed a frequency × severity pricing model with Poisson claim rates.",
+      "facts": [
+        "Designed a frequency × severity pricing model",
+        "Used Poisson claim rates conditioned on product risk and condition",
+        "Implemented with AI-assisted development"
+      ],
+      "metrics": [],
+      "skill_ids": [
+        "skill_frequency_severity_modelling"
+      ],
+      "evidence": [
+        {
+          "source_type": "cv",
+          "reference": "S1 baseline_cv.tex (current Overleaf CV)",
+          "notes": null
+        },
+        {
+          "source_type": "cv",
+          "reference": "S2 Elliot Gautier CV.pdf",
+          "notes": null
+        },
+        {
+          "source_type": "cv",
+          "reference": "S3 Elliot Gautier Resume de.pdf",
+          "notes": null
+        }
+      ],
+      "verification_status": "needs_review"
+    }
+  ]
+}

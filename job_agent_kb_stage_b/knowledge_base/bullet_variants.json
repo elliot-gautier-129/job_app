@@ -1,0 +1,346 @@
+{
+  "schema_version": "1.3",
+  "bullet_variants": [
+    {
+      "id": "bullet_amazon_etl_s1",
+      "achievement_ids": [
+        "ach_amazon_etl_incremental"
+      ],
+      "text": "Rebuilt Redshift ETL pipelines to process only changed data across billion-row datasets, reducing daily runtime from 6–8 hours to ∼30 minutes and supporting a dashboard used by 100+ stakeholders.",
+      "emphasis": [
+        "data_engineering",
+        "business_impact"
+      ],
+      "skill_ids": [
+        "skill_redshift",
+        "skill_etl_pipelines",
+        "skill_incremental_loading"
+      ],
+      "status": "proposed",
+      "source": "existing_cv",
+      "priority": 5,
+      "approved_at": null,
+      "approved_text_sha256": null
+    },
+    {
+      "id": "bullet_amazon_lost_package_s1",
+      "achievement_ids": [
+        "ach_amazon_lost_package_model"
+      ],
+      "text": "Built a LightGBM classifier to predict lost packages, improving F1 from 0.43 to 0.61 through cross-validated hyperparameter tuning; automated alerts flagged an estimated £30k of potentially lost packages per week.",
+      "emphasis": [
+        "machine_learning",
+        "business_impact"
+      ],
+      "skill_ids": [
+        "skill_lightgbm",
+        "skill_cross_validation"
+      ],
+      "status": "proposed",
+      "source": "existing_cv",
+      "priority": 5,
+      "approved_at": null,
+      "approved_text_sha256": null
+    },
+    {
+      "id": "bullet_amazon_multiagent_s1",
+      "achievement_ids": [
+        "ach_amazon_multiagent_ai"
+      ],
+      "text": "Deployed a multi-agent AI system on AWS Bedrock and Lambda, combining Amazon Kendra retrieval over financial knowledge bases with a text-to-SQL agent that queried Redshift from natural-language questions.",
+      "emphasis": [
+        "ai_engineering",
+        "cloud"
+      ],
+      "skill_ids": [
+        "skill_aws_bedrock",
+        "skill_aws_lambda",
+        "skill_amazon_kendra",
+        "skill_text_to_sql",
+        "skill_multi_agent_systems",
+        "skill_redshift"
+      ],
+      "status": "proposed",
+      "source": "existing_cv",
+      "priority": 4,
+      "approved_at": null,
+      "approved_text_sha256": null
+    },
+    {
+      "id": "bullet_amazon_carrier_pricing_s1",
+      "achievement_ids": [
+        "ach_amazon_carrier_pricing_fix"
+      ],
+      "text": "Identified duplicated and placeholder per-mile costs in 3P carrier pricing tables feeding Amazon’s route-assignment algorithm; traced the root cause across two teams and drove the cross-team fix to zero duplicate lanes.",
+      "emphasis": [
+        "data_quality",
+        "stakeholder_management"
+      ],
+      "skill_ids": [
+        "skill_data_quality_validation"
+      ],
+      "status": "proposed",
+      "source": "existing_cv",
+      "priority": 4,
+      "approved_at": null,
+      "approved_text_sha256": null
+    },
+    {
+      "id": "bullet_kirontech_provider_graph_s1",
+      "achievement_ids": [
+        "ach_kirontech_provider_graph"
+      ],
+      "text": "Constructed provider-patient datasets from an 8M-row claims database using SQL and Python/pandas and modelled providers as a cosine-similarity-weighted graph to surface disproportionately connected provider clusters.",
+      "emphasis": [
+        "data_engineering",
+        "graph_modelling"
+      ],
+      "skill_ids": [
+        "skill_sql",
+        "skill_python",
+        "skill_pandas",
+        "skill_graph_analytics"
+      ],
+      "status": "proposed",
+      "source": "existing_cv",
+      "priority": 3,
+      "approved_at": null,
+      "approved_text_sha256": null
+    },
+    {
+      "id": "bullet_kirontech_fraud_detection_s1",
+      "achievement_ids": [
+        "ach_kirontech_fraud_detection"
+      ],
+      "text": "Engineered node-level features for unsupervised anomaly detection using Local Outlier Factor and applied Depth First Search to isolate collusive subgraphs, contributing to the identification of a fraudulent claims network worth £1.5M.",
+      "emphasis": [
+        "machine_learning",
+        "business_impact"
+      ],
+      "skill_ids": [
+        "skill_anomaly_detection",
+        "skill_graph_analytics"
+      ],
+      "status": "proposed",
+      "source": "existing_cv",
+      "priority": 4,
+      "approved_at": null,
+      "approved_text_sha256": null
+    },
+    {
+      "id": "bullet_kirontech_dashboard_s1",
+      "achievement_ids": [
+        "ach_kirontech_streamlit_dashboard"
+      ],
+      "text": "Developed an interactive Streamlit dashboard to present datasets and model results to fraud investigators.",
+      "emphasis": [
+        "communication",
+        "tooling"
+      ],
+      "skill_ids": [
+        "skill_streamlit"
+      ],
+      "status": "proposed",
+      "source": "existing_cv",
+      "priority": 2,
+      "approved_at": null,
+      "approved_text_sha256": null
+    },
+    {
+      "id": "bullet_qrt_pairs_trading_s1",
+      "achievement_ids": [
+        "ach_qrt_pairs_trading"
+      ],
+      "text": "Researched a pairs-trading strategy on a decade of Pepsi and Coca-Cola price data, backtesting the spread in Excel and presenting results to the team.",
+      "emphasis": [
+        "quantitative_research"
+      ],
+      "skill_ids": [
+        "skill_backtesting",
+        "skill_excel"
+      ],
+      "status": "proposed",
+      "source": "existing_cv",
+      "priority": 2,
+      "approved_at": null,
+      "approved_text_sha256": null
+    },
+    {
+      "id": "bullet_football_pipeline_s1",
+      "achievement_ids": [
+        "ach_football_pipeline"
+      ],
+      "text": "Built a reproducible SQL + Python research pipeline merging 80 files into 12,600 matches across five leagues, with look-ahead-safe lagged features enforced through automated tests.",
+      "emphasis": [
+        "data_engineering",
+        "reproducibility"
+      ],
+      "skill_ids": [
+        "skill_sql",
+        "skill_python",
+        "skill_etl_pipelines"
+      ],
+      "status": "proposed",
+      "source": "existing_cv",
+      "priority": 3,
+      "approved_at": null,
+      "approved_text_sha256": null
+    },
+    {
+      "id": "bullet_football_market_benchmark_s1",
+      "achievement_ids": [
+        "ach_football_market_benchmark"
+      ],
+      "text": "Benchmarked model probabilities against market-implied bookmaker odds and backtested a betting strategy (−3.4% return), concluding no exploitable edge after costs, consistent with market efficiency.",
+      "emphasis": [
+        "quantitative_research",
+        "statistical_rigour"
+      ],
+      "skill_ids": [
+        "skill_backtesting"
+      ],
+      "status": "proposed",
+      "source": "existing_cv",
+      "priority": 3,
+      "approved_at": null,
+      "approved_text_sha256": null
+    },
+    {
+      "id": "bullet_cover_web_app_s1",
+      "achievement_ids": [
+        "ach_cover_web_app"
+      ],
+      "text": "Co-built and deployed a web app for insuring everyday products, using Gemini to verify product photos and receipts and automatically generate policy quotes.",
+      "emphasis": [
+        "ai_engineering",
+        "product"
+      ],
+      "skill_ids": [
+        "skill_gemini"
+      ],
+      "status": "proposed",
+      "source": "existing_cv",
+      "priority": 3,
+      "approved_at": null,
+      "approved_text_sha256": null
+    },
+    {
+      "id": "bullet_cover_pricing_model_s1",
+      "achievement_ids": [
+        "ach_cover_pricing_model"
+      ],
+      "text": "Designed a frequency × severity pricing model using Poisson claim rates conditioned on product risk and condition, implemented with AI-assisted development.",
+      "emphasis": [
+        "statistical_modelling"
+      ],
+      "skill_ids": [
+        "skill_frequency_severity_modelling"
+      ],
+      "status": "proposed",
+      "source": "existing_cv",
+      "priority": 3,
+      "approved_at": null,
+      "approved_text_sha256": null
+    },
+    {
+      "id": "bullet_amazon_lost_package_s2",
+      "achievement_ids": [
+        "ach_amazon_lost_package_model"
+      ],
+      "text": "Applied a LightGBM classification model to predict lost packages, using cross-validation for parameter tuning and statistical metrics for evaluation; automated alerts flagged an estimated £30k of potentially lost packages per week to warehouse teams.",
+      "emphasis": [
+        "machine_learning",
+        "business_impact"
+      ],
+      "skill_ids": [
+        "skill_lightgbm",
+        "skill_cross_validation"
+      ],
+      "status": "proposed",
+      "source": "existing_cv",
+      "priority": 3,
+      "approved_at": null,
+      "approved_text_sha256": null
+    },
+    {
+      "id": "bullet_amazon_carrier_pricing_s3",
+      "achievement_ids": [
+        "ach_amazon_carrier_pricing_fix"
+      ],
+      "text": "Identified duplicate and placeholder pricing through SQL row-count validation and coordinated a cross-team fix to prevent inaccurate carrier costs reaching Amazon’s route-assignment system.",
+      "emphasis": [
+        "data_quality",
+        "stakeholder_management"
+      ],
+      "skill_ids": [
+        "skill_sql",
+        "skill_data_quality_validation"
+      ],
+      "status": "proposed",
+      "source": "existing_cv",
+      "priority": 3,
+      "approved_at": null,
+      "approved_text_sha256": null
+    },
+    {
+      "id": "bullet_qrt_arbitrage_s2",
+      "achievement_ids": [
+        "ach_qrt_pairs_trading"
+      ],
+      "text": "Analysed a decade of historical Pepsi and Coca-Cola share-price data, developed an arbitrage strategy in Excel, and presented findings to the team.",
+      "emphasis": [
+        "quantitative_research"
+      ],
+      "skill_ids": [
+        "skill_excel"
+      ],
+      "status": "proposed",
+      "source": "existing_cv",
+      "priority": 1,
+      "approved_at": null,
+      "approved_text_sha256": null
+    },
+    {
+      "id": "bullet_football_pipeline_s2",
+      "achievement_ids": [
+        "ach_football_pipeline"
+      ],
+      "text": "Built a reproducible SQL + Python pipeline merging 80 files into 12,600 matches across five leagues, with leakage-safe features enforced through automated tests.",
+      "emphasis": [
+        "data_engineering",
+        "reproducibility"
+      ],
+      "skill_ids": [
+        "skill_sql",
+        "skill_python",
+        "skill_etl_pipelines"
+      ],
+      "status": "proposed",
+      "source": "existing_cv",
+      "priority": 3,
+      "approved_at": null,
+      "approved_text_sha256": null
+    },
+    {
+      "id": "bullet_football_lightgbm_s2",
+      "achievement_ids": [
+        "ach_football_lightgbm_model"
+      ],
+      "text": "Trained a LightGBM multiclass model using walk-forward cross-validation, reducing log loss by 8.8% relative to a naive baseline and benchmarking predictions against bookmaker odds in a Streamlit dashboard.",
+      "emphasis": [
+        "machine_learning",
+        "statistical_rigour"
+      ],
+      "skill_ids": [
+        "skill_lightgbm",
+        "skill_walk_forward_validation",
+        "skill_streamlit"
+      ],
+      "status": "proposed",
+      "source": "existing_cv",
+      "priority": 4,
+      "approved_at": null,
+      "approved_text_sha256": null
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.3",
+  "full_name": "Elliot Gautier",
+  "contact": {
+    "email": "gautierepp@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/elliot-gautier-b2aaa3256",
+    "github": "https://github.com/elliot-gautier-129",
+    "website": null
+  },
+  "contact_profiles": {
+    "US": {
+      "location": "Berkeley, CA",
+      "phone": "+1 (510) 570-5964",
+      "work_authorization_display": "Eligible for OPT + STEM OPT"
+    },
+    "UK": {
+      "location": "London, UK",
+      "phone": "+44 7884972450",
+      "work_authorization_display": null
+    }
+  },
+  "interests": [
+    {
+      "id": "int_rugby",
+      "name": "Rugby",
+      "detail": "Warwick BUCS 3rd Team Vice-Captain",
+      "cv_eligible": true
+    },
+    {
+      "id": "int_football",
+      "name": "Football",
+      "detail": "Warwick Statistics Captain",
+      "cv_eligible": true
+    },
+    {
+      "id": "int_tennis",
+      "name": "Tennis",
+      "detail": null,
+      "cv_eligible": true
+    },
+    {
+      "id": "int_athletics",
+      "name": "Athletics",
+      "detail": null,
+      "cv_eligible": true
+    }
+  ]
+}

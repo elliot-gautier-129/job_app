@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.3",
+  "experiences": [
+    {
+      "id": "exp_amazon_bie_intern",
+      "organization": "Amazon",
+      "title": "Business Intelligence Engineer Intern",
+      "location": "London, UK",
+      "start_date": "2025-08",
+      "end_date": "2026-02",
+      "date_display": "Aug 2025 – Feb 2026",
+      "description": null,
+      "achievement_ids": [
+        "ach_amazon_etl_incremental",
+        "ach_amazon_lost_package_model",
+        "ach_amazon_multiagent_ai",
+        "ach_amazon_carrier_pricing_fix"
+      ],
+      "cv_eligible": true
+    },
+    {
+      "id": "exp_kirontech_ds_intern",
+      "organization": "Kirontech Ltd",
+      "title": "Data Science Intern",
+      "location": "Cambridge, UK",
+      "start_date": "2024-06",
+      "end_date": "2024-07",
+      "date_display": "Jun – Jul 2024",
+      "description": null,
+      "achievement_ids": [
+        "ach_kirontech_provider_graph",
+        "ach_kirontech_fraud_detection",
+        "ach_kirontech_streamlit_dashboard"
+      ],
+      "cv_eligible": true
+    },
+    {
+      "id": "exp_qrt_da_intern",
+      "organization": "Qube Research & Technologies (QRT)",
+      "title": "Data Analyst Intern",
+      "location": "London, UK",
+      "start_date": "2023-04",
+      "end_date": "2023-04",
+      "date_display": "Apr 2023",
+      "description": null,
+      "achievement_ids": [
+        "ach_qrt_pairs_trading"
+      ],
+      "cv_eligible": true
+    }
+  ]
+}

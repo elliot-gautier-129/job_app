@@ -1,0 +1,278 @@
+{
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "1.3"
+    },
+    "manifest_id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*$"
+    },
+    "template_id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*$"
+    },
+    "job_id": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "sections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "section": {
+            "enum": [
+              "education",
+              "experience",
+              "projects",
+              "skills",
+              "interests"
+            ]
+          },
+          "entries": {
+            "type": "array",
+            "items": {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "entry_id": {
+                      "type": "string",
+                      "pattern": "^[a-z][a-z0-9_]*$"
+                    },
+                    "bullet_ids": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "pattern": "^[a-z][a-z0-9_]*$"
+                      },
+                      "uniqueItems": true
+                    },
+                    "locked": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "entry_id",
+                    "bullet_ids",
+                    "locked"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "entry_id": {
+                      "type": "string",
+                      "pattern": "^[a-z][a-z0-9_]*$"
+                    },
+                    "coursework_ids": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "pattern": "^[a-z][a-z0-9_]*$"
+                      },
+                      "uniqueItems": true
+                    },
+                    "locked": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "entry_id",
+                    "coursework_ids",
+                    "locked"
+                  ],
+                  "additionalProperties": false
+                }
+              ]
+            },
+            "uniqueItems": true
+          },
+          "skill_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9_]*$"
+            },
+            "uniqueItems": true
+          },
+          "interest_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9_]*$"
+            },
+            "uniqueItems": true
+          },
+          "skill_groups": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "label": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "skill_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "pattern": "^[a-z][a-z0-9_]*$"
+                  },
+                  "uniqueItems": true
+                }
+              },
+              "required": [
+                "label",
+                "skill_ids"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "section",
+          "entries",
+          "skill_ids",
+          "interest_ids",
+          "skill_groups"
+        ],
+        "additionalProperties": false,
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "section": {
+                  "const": "interests"
+                }
+              },
+              "required": [
+                "section"
+              ]
+            },
+            "then": {
+              "properties": {
+                "entries": {
+                  "maxItems": 0
+                },
+                "skill_ids": {
+                  "maxItems": 0
+                },
+                "skill_groups": {
+                  "maxItems": 0
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "section": {
+                  "const": "skills"
+                }
+              },
+              "required": [
+                "section"
+              ]
+            },
+            "then": {
+              "properties": {
+                "entries": {
+                  "maxItems": 0
+                },
+                "interest_ids": {
+                  "maxItems": 0
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "section": {
+                  "enum": [
+                    "education",
+                    "experience",
+                    "projects"
+                  ]
+                }
+              },
+              "required": [
+                "section"
+              ]
+            },
+            "then": {
+              "properties": {
+                "skill_ids": {
+                  "maxItems": 0
+                },
+                "interest_ids": {
+                  "maxItems": 0
+                },
+                "skill_groups": {
+                  "maxItems": 0
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "section": {
+                  "const": "skills"
+                }
+              },
+              "required": [
+                "section"
+              ]
+            },
+            "then": {
+              "not": {
+                "properties": {
+                  "skill_ids": {
+                    "minItems": 1
+                  },
+                  "skill_groups": {
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "skill_ids",
+                  "skill_groups"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "minItems": 1
+    },
+    "contact_profile_id": {
+      "enum": [
+        "US",
+        "UK"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "manifest_id",
+    "template_id",
+    "contact_profile_id",
+    "job_id",
+    "sections"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/job-agent/schema/v1.3/cv_manifest.schema.json",
+  "title": "Job Agent cv_manifest v1.3"
+}
