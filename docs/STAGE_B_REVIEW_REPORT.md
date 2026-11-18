@@ -62,5 +62,5 @@ Amazon ETL (6–8 h → ∼30 min, 100+ stakeholders, billion-row); lost-package
 
 - **Stage C (`default_cv.json`)** needs bullet approvals first. It will reproduce the baseline: no summary, the confirmed football bullet, skill groups (Programming & Data / Python / Tools / Languages), and interests.
 - **Renderer config** for nested skills (`skill_sql → [skill_redshift, skill_duckdb]`) belongs with the template in Phase 2.
-- **Approval tool** (records `approved_at` + SHA-256) is still to be built.
+- **Approval tool:** `tools/approve_bullets.py` (added 2026-11-18). Interactive review (`a`/`r`/`s`/`q`) or `--approve/--reject/--revoke ID…`. Records a UTC `approved_at` and the SHA-256 of the exact text, keeps a `.bak`, re-runs the validator, and flags edited-after-approval bullets as STALE.
 - Project repo links and anything not on any CV.

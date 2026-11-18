@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+*.json.bak
+*.json.tmp
+.venv/
+.env
+# LaTeX build artefacts
+*.aux
+*.log
+*.out
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+build/

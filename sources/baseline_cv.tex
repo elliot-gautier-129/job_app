@@ -1,0 +1,175 @@
+\documentclass[10pt,a4paper]{article}
+
+% ---------- Packages ----------
+\usepackage[margin=0.42in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{fontawesome5}
+
+% ---------- Formatting ----------
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+
+\titleformat{\section}
+  {\normalsize\bfseries}
+  {}
+  {0em}
+  {}
+  [\titlerule]
+
+\titlespacing{\section}{0pt}{5pt}{3pt}
+
+\setlist[itemize]{
+    leftmargin=1.25em,
+    itemsep=1pt,
+    topsep=2pt,
+    parsep=0pt,
+    partopsep=0pt
+}
+
+% ---------- Hyperlinks ----------
+\hypersetup{
+    colorlinks=true,
+    urlcolor=black,
+    linkcolor=black
+}
+
+\begin{document}
+
+% =========================================================
+% HEADER
+% =========================================================
+
+\begin{center}
+    {\LARGE \textbf{Elliot Gautier}} \\[3pt]
+    London, UK  \quad \textbar{} \quad
+    \faEnvelope\
+    \href{mailto:gautierepp@gmail.com}{gautierepp@gmail.com}
+    \quad \textbar{} \quad
+    \faPhone\ +44 7884972450
+    \quad \textbar{} \quad
+    \faLinkedin\
+    \href{www.linkedin.com/in/elliot-gautier-b2aaa3256}{Elliot Gautier}
+    \quad \textbar{} \quad
+    \faGithub\
+    \href{https://github.com/elliot-gautier-129}{elliot-gautier-129}
+\end{center}
+
+% =========================================================
+% SUMMARY
+% =========================================================
+
+\section*{SUMMARY}
+
+M.A. Statistics \& Data Science candidate at UC Berkeley with experience modelling noisy, real-world data with statistics and machine learning, from time-series forecasting and backtesting to production data pipelines in Python and SQL.
+
+% =========================================================
+% EDUCATION
+% =========================================================
+
+\section*{EDUCATION}
+
+\textbf{UC BERKELEY} \hfill \textbf{Berkeley, CA}\\
+\textit{Master's in Statistics \& Data Science} \hfill \textit{2026 -- 2027}
+\begin{itemize}
+    \item 4.0 GPA (expected)
+    \item Coursework: Statistical \& Bayesian Inference, Machine Learning, Computational Statistics, high-dimensional statistics
+\end{itemize}
+
+\textbf{UNIVERSITY OF WARWICK} \hfill \textbf{Coventry, UK}\\
+\textit{B.Sc. MORSE (Mathematics, Operational Research, Statistics \& Economics)}
+\hfill \textit{2022 -- 2025}
+\begin{itemize}
+    \item First Class Honours (80\% - Top 5\% of cohort)
+    \item Relevant Courses: Topics in Data Science (92; reinforcement learning, Bayesian inference/MCMC, generative models), Linear
+Statistical Modelling with R (84), Mathematical Statistics (87), Machine Learning Frameworks (83), Programming for Data
+Science (83), Python for Data-Analytic Tasks (88), Mathematical Programming (96)
+\end{itemize}
+
+% =========================================================
+% WORK EXPERIENCE
+% =========================================================
+
+\section*{WORK EXPERIENCE}
+
+\textbf{AMAZON} \hfill \textbf{London, UK}\\
+\textit{Business Intelligence Engineer Intern} \hfill \textit{Aug 2025 -- Feb 2026}
+
+\begin{itemize}
+    \item Rebuilt Redshift ETL pipelines to process only changed data across billion-row datasets, reducing daily runtime from 6--8 hours to $\sim$30 minutes and supporting a dashboard used by 100+ stakeholders.
+
+    \item Built a LightGBM classifier to predict lost packages, improving F1 from 0.43 to 0.61 through cross-validated hyperparameter tuning; automated alerts flagged an estimated £30k of potentially lost packages per week.
+
+    \item Deployed a multi-agent AI system on AWS Bedrock and Lambda, combining Amazon Kendra retrieval over financial knowledge bases with a text-to-SQL agent that queried Redshift from natural-language questions.
+
+    \item Identified duplicated and placeholder per-mile costs in 3P carrier pricing tables feeding Amazon’s route-assignment algorithm; traced the root cause across two teams and drove the cross-team fix to zero duplicate lanes.
+
+
+\end{itemize}
+
+\textbf{KIRONTECH LTD} \hfill \textbf{Cambridge, UK}\\
+\textit{Data Science Intern} \hfill \textit{Jun -- Jul 2024}
+
+\begin{itemize}
+    \item Constructed provider-patient datasets from an 8M-row claims database using SQL and Python/pandas and modelled providers as a cosine-similarity-weighted graph to surface disproportionately connected provider clusters.
+
+    \item Engineered node-level features for unsupervised anomaly detection using Local Outlier Factor and applied Depth First Search to isolate collusive subgraphs, contributing to the identification of a fraudulent claims network worth £1.5M.
+
+    \item Developed an interactive Streamlit dashboard to present datasets and model results to fraud investigators.
+\end{itemize}
+
+\textbf{QUBE RESEARCH \& TECHNOLOGIES (QRT)} \hfill \textbf{London, UK}\\
+\textit{Data Analyst Intern} \hfill \textit{Apr 2023}
+
+\begin{itemize}
+    \item Researched a pairs-trading strategy on a decade of Pepsi and Coca-Cola price data, backtesting the spread in Excel and presenting results to the team.
+\end{itemize}
+
+% =========================================================
+% PROJECTS
+% =========================================================
+
+\section*{TECHNICAL PROJECTS}
+
+\textbf{FOOTBALL FORECASTING BEYOND THE MARKET} \hfill \textit{2026}\\
+\textit{Signal Research \& Market-Efficiency Study}
+
+\begin{itemize}
+    \item Built a reproducible SQL + Python research pipeline merging 80 files into 12,600 matches across five leagues, with look-ahead-safe lagged features enforced through automated tests.
+
+    \item Researched predictive signals (form, Elo, xG, rest) via feature-group ablation under walk-forward cross-validation, reducing out-of-sample log loss by 12.8\% relative to a naive baseline.
+
+    \item Benchmarked model probabilities against market-implied bookmaker odds and backtested a betting strategy ($-$3.4\% return), concluding no exploitable edge after costs, consistent with market efficiency.
+\end{itemize}
+
+\textbf{COVER -- AI-NATIVE INSURANCE PROTOTYPE} \hfill \textit{2026}\\
+\textit{Berkeley x DeepMind Hackathon}
+
+\begin{itemize}
+    \item Co-built and deployed a web app for insuring everyday products, using Gemini to verify product photos and receipts and automatically generate policy quotes.
+
+    \item Designed a frequency $\times$ severity pricing model using Poisson claim rates conditioned on product risk and condition, implemented with AI-assisted development.
+\end{itemize}
+
+% =========================================================
+% TECHNICAL SKILLS
+% =========================================================
+
+\section*{TECHNICAL SKILLS}
+
+\begin{itemize}
+    \item \textbf{Programming \& Data:} Python, R, SQL (Redshift, DuckDB), Bash, pytest, Git, Linux, AWS.
+
+    \item \textbf{Python:} Pandas, NumPy, Scikit-learn, PyTorch, LightGBM, XGBoost, Matplotlib, Streamlit
+
+    \item \textbf{Tools:} GitHub, Claude Code, Google AI Studio.
+
+    \item \textbf{Languages:} French (fluent), Spanish (intermediate).
+
+    \item \textbf{Interests:} Rugby (Warwick BUCS 3rd Team Vice-Captain), Football (Warwick Statistics Captain), Tennis, Athletics.
+\end{itemize}
+
+\end{document}
